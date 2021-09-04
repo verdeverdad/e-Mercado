@@ -21,7 +21,7 @@ var getJSONData = function (url) { // esperamos la respuesta
     .catch(function (error) {
       result.status = 'error';
       result.data = 'error';
-      return result
+      return result;
 
     });
 }
@@ -29,6 +29,7 @@ var getJSONData = function (url) { // esperamos la respuesta
 var productosArray = [];
 var minPrecio = undefined;
 var maxPrecio = undefined;
+var buscar;
 
 function sortProductos(criterio, array) {
   let result = []
@@ -38,7 +39,7 @@ function sortProductos(criterio, array) {
       function (a, b) {
         if (a.cost < b.cost) { return -1; }
         if (a.cost > b.cost) { return 1; }
-        return 0;
+        return 0; //los numeros son iguales
       });
   } else if (criterio === 2) {
     result = array.sort(
@@ -58,18 +59,22 @@ function mostrarLista(array) {
   for (let i = 0; i < array.length; i++) {
     let producto = array[i]
 
-    if (((minPrecio == undefined) || (minPrecio != undefined && parseInt(producto.cost) <= minPrecio)) &&
-      ((maxPrecio == undefined) || (maxPrecio != undefined && parseInt(producto.cost) >= maxPrecio))) {
+    if (((minPrecio == undefined) || (minPrecio != undefined && parseInt(producto.cost) >= minPrecio)) &&
+      ((maxPrecio == undefined) || (maxPrecio != undefined && parseInt(producto.cost) <= maxPrecio)))
 
-    
-    contenido += "Nombre: " + producto.name + "<br>";
-    contenido += "Descripción: " + producto.description + "<br>";
-    contenido += "Precio: " + producto.cost + "<br>"
-    contenido += "<br><br><hr>"
+      if (buscar == undefined || producto.name.toLowerCase().includes(buscar)) {
+
+
+        contenido += "Nombre: " + producto.name + "<br>";
+        contenido += "Descripción: " + producto.description + "<br>";
+        contenido += "Precio: " + producto.cost + "<br>";
+        contenido += "Relevancia: " + producto.soldCount + "<br>";
+        contenido += "<br><br><hr>"
+
+      }
+    document.getElementById("Productos").innerHTML = contenido;
 
   }
-  document.getElementById("Productos").innerHTML = contenido;
-}
 }
 document.addEventListener("DOMContentLoaded", function (e) {
 
@@ -88,29 +93,88 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 document.getElementById("filtrar").addEventListener("click", function () {
 
-  let minPrecio = document.getElementById("minPrecio").value;
-  let maxPrecio = document.getElementById("maxPrecio").value;
-
-  
-  if ((minPrecio == undefined) && (minPrecio != "") && (parseInt(minPrecio)) >= 0) {
+  minPrecio = document.getElementById("minPrecio").value;
+  maxPrecio = document.getElementById("maxPrecio").value;
+ 
+  if ((minPrecio != undefined) && (minPrecio != "") && (parseInt(minPrecio) >= 0)) {
     minPrecio = parseInt(minPrecio);
   }
   else {
     minPrecio = undefined;
-  } 
+  }
 
-  if ((maxPrecio == undefined) && (maxPrecio != "") && (parseInt(maxPrecio)) >= 0) {
+  if ((maxPrecio != undefined) && (maxPrecio != "") && (parseInt(maxPrecio)) >= 0) {
     maxPrecio = parseInt(maxPrecio);
   }
   else {
     maxPrecio = undefined;
   }
-  sortProductos(criterio, productosArray);
+
+  mostrarLista(productosArray);
+});
+
+//ORDEN AZ
+document.getElementById("AZ").addEventListener("click", function () {
+
+  productosArray = productosArray.sort((a, b) => {
+    if (a.name > b.name) { return 1 }
+    if (a.name < b.name) { return -1 }
+    return 0
+  })
+  mostrarLista(productosArray);
+});
+
+//Z-A
+document.getElementById("ZA").addEventListener("click", function () {
+
+  productosArray = productosArray.sort((a, b) => {
+    if (a.name < b.name) { return 1 }
+    if (a.name > b.name) { return -1 }
+    return 0
+  })
   mostrarLista(productosArray);
 });
 
 
+document.getElementById("Maximo").addEventListener("click", function () {
 
+  productosArray = productosArray.sort((a, b) => {
+    if (a.cost < b.cost) { return 1 }
+    if (a.cost > b.cost) { return -1 }
+    return 0
+  })
+  mostrarLista(productosArray);
+});
+
+
+document.getElementById("Minimo").addEventListener("click", function () {
+
+  productosArray = productosArray.sort((a, b) => {
+    if (a.cost > b.cost) { return 1 }
+    if (a.cost < b.cost) { return -1 }
+    return 0
+  })
+  mostrarLista(productosArray);
+});
+
+
+document.getElementById("buscar").addEventListener('input', function() {
+  buscar = document.getElementById("buscar").value.toLowerCase()
+  //console.log("anda")
+  mostrarLista(productosArray);
+});
+
+
+//RELEVANCIA
+document.getElementById("Relevancia").addEventListener("click", function () {
+
+  productosArray = productosArray.sort((a, b) => {
+    if (a.soldCount < b.soldCount) { return 1 }
+    if (a.soldCount > b.soldCount) { return -1 }
+    return 0
+  })
+  mostrarLista(productosArray);
+});
 
 //boton borrar
 document.getElementById("borrar").addEventListener("click", function () {
