@@ -31,7 +31,7 @@ var minPrecio = undefined;
 var maxPrecio = undefined;
 var buscar;
 
-function sortProductos(criterio, array) {
+/*function sortProductos(criterio, array) {
   let result = []
 
   if (criterio === 1) {
@@ -50,10 +50,10 @@ function sortProductos(criterio, array) {
       });
   }
 }
+*/
 
 
-
-
+//Muestro la lista despues de obtener los datos del JSON
 function mostrarLista(array) {
   let contenido = "";
   for (let i = 0; i < array.length; i++) {
@@ -69,8 +69,9 @@ function mostrarLista(array) {
         contenido += "Descripción: " + producto.description + "<br>";
         contenido += "Precio: " + producto.cost + "<br>";
         contenido += "Relevancia: " + producto.soldCount + "<br>";
+        contenido += "<a href='product-info.html'>Más info</a>"
         contenido += "<br><br><hr>"
-
+        
       }
     document.getElementById("Productos").innerHTML = contenido;
 
@@ -83,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
       productosArray = response.data;
 
       mostrarLista(productosArray);
+      
 
     }
 
@@ -135,7 +137,7 @@ document.getElementById("ZA").addEventListener("click", function () {
   mostrarLista(productosArray);
 });
 
-
+// ordena el maximo precio
 document.getElementById("Maximo").addEventListener("click", function () {
 
   productosArray = productosArray.sort((a, b) => {
@@ -146,18 +148,18 @@ document.getElementById("Maximo").addEventListener("click", function () {
   mostrarLista(productosArray);
 });
 
-
+// ordena el minimo precio
 document.getElementById("Minimo").addEventListener("click", function () {
 
   productosArray = productosArray.sort((a, b) => {
     if (a.cost > b.cost) { return 1 }
     if (a.cost < b.cost) { return -1 }
-    return 0
+    return 0 //los numeros son iguales
   })
   mostrarLista(productosArray);
 });
 
-
+//buscador
 document.getElementById("buscar").addEventListener('input', function() {
   buscar = document.getElementById("buscar").value.toLowerCase()
   //console.log("anda")

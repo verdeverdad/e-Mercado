@@ -92,42 +92,25 @@
     </div>
   </div>
 
-
-  
-  <script src="js/init.js"></script>
-  <script src="js/login.js"></script>
   <script>
+
     function click_al_register() {
-      //window.location.href = 'inicio.html';
 
       var username = document.getElementById("username").value
       var email = document.getElementById("email").value
       var password = document.getElementById("password").value
 
       if (username != "" && email != "" && password != "") {
-        localStorage.setItem("nombreUsuario",JSON.stringify({ username: username }));
+
+        localStorage.setItem("nombreUsuario", JSON.stringify({ username: username }));
         window.location.href = 'inicio.html';
-        //return false
+
       }
-
-     /* function guardar_datos() {
-
-        var username = document.getElementById("username").value
-        var email = document.getElementById("email").value
-        var password = document.getElementById("password").value
-
-        if (click_al_register) {
-          
-        window.location = "inicio.html"
-        }
-      function guradar_datos()
-
-    }*/
-
-}
-//
+    }
 
   </script>
+  <script src="js/init.js"></script>
+  <script src="js/login.js"></script>
 </body>
 
 </html>
