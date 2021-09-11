@@ -64,17 +64,17 @@ function mostrarLista(array) {
 
       if (buscar == undefined || producto.name.toLowerCase().includes(buscar)) {
 
-
+        contenido += "<img src='"+ producto.imgSrc + "' style='width: 30%; float: right;' class='img-thumbnail'>" +  "<br>";
         contenido += "Nombre: " + producto.name + "<br>";
         contenido += "Descripción: " + producto.description + "<br>";
-        contenido += "Precio: " + producto.cost + "<br>";
+        contenido += "Precio: " + producto.cost + "<br>" ;
         contenido += "Relevancia: " + producto.soldCount + "<br>";
         contenido += "<a href='product-info.html'>Más info</a>"
         contenido += "<br><br><hr>"
         
       }
     document.getElementById("Productos").innerHTML = contenido;
-
+      
   }
 }
 document.addEventListener("DOMContentLoaded", function (e) {
