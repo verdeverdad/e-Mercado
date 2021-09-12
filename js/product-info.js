@@ -62,7 +62,7 @@ function mostrarComentarios(array) {
         let comentario = array[i]
 
         contenido += "<strong>Puntuación: </strong>" + comentario.score + "<br>";
-        contenido += "<strong>Descripción: </strong>" + comentario.description + "<br>";
+        contenido += "<strong>Comentario: </strong>" + comentario.description + "<br>";
         contenido += "<strong>Usuario: </strong>" + comentario.user + "<br>";
         contenido += "<strong>Fecha: </strong>" + comentario.dateTime + "<br>";
         contenido += "<br><br><hr>"
