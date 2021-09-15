@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTOS_FIAT_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
 
-            let producto = resultObj.data;
+            let producto = resultObj.data; 
 
             let titulo = document.getElementById("titulo2");
             let descripcion = document.getElementById("descripcion2");
@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
             let categoria = document.getElementById("categoria2");
             let relevancia = document.getElementById("relevancia2");
             let prodRelacionados = document.getElementById("prodRelacionados2");
-
 
             titulo.innerHTML = producto.name
             descripcion.innerHTML = "Descripción: " + producto.description
