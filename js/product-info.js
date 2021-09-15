@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
@@ -54,19 +53,38 @@ var getJSONData = function (url) { // esperamos la respuesta
         });
 }
 
+
+
+
 var comentariosArray = []
 
 function mostrarComentarios(array) {
     let contenido = "";
     for (let i = 0; i < array.length; i++) {
         let comentario = array[i]
+        let puntos = ""
 
-        contenido += "<strong>Puntuación: </strong>" + comentario.score + "<br>";
+        if (comentario.score > 0 && comentario.score <= 5) {
+            for (let i = 1; i <= comentario.score; i++) {
+                puntos += '<span class="fa fa-star checked"></span>';
+
+            }
+
+            for (let i = comentario.score + 1; i <= 5; i++) {
+                puntos += '<span class="fa fa-star"></span>';
+            }
+        }
+        //contenido += "<strong>Puntuación: </strong>" + comentario.score + "<br>";
+        contenido += '<div style="text-aling: right">' + puntos + '</div>';
         contenido += "<strong>Comentario: </strong>" + comentario.description + "<br>";
         contenido += "<strong>Usuario: </strong>" + comentario.user + "<br>";
         contenido += "<strong>Fecha: </strong>" + comentario.dateTime + "<br>";
         contenido += "<br><br><hr>"
+
     }
+
+
+
     document.getElementById("comentarios").innerHTML = contenido;
 }
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -78,31 +96,28 @@ document.addEventListener("DOMContentLoaded", function (e) {
             mostrarComentarios(comentariosArray);
         }
 
-        document.getElementById("coment").addEventListener("click", function () {
-            let comentario = document.getElementById("comentarios");
-            var comentarios = document.getElementById("text-comentario").value
-            if (comentarios != "") {
-                localStorage.setItem("comentarios-nuevos", JSON.stringify({ coment: comentarios }));
+    });
+});
 
-                let usuarioLogueado = JSON.parse(localStorage.getItem("nombreUsuario"))
+    //HASTA ACA NO TOCAR NADA!!!!!
 
-                comentario.innerHTML += "<strong>Descripción: </strong>" + comentarios + "<br>" +
-                    "<strong>Usuario: </strong>" + usuarioLogueado.username + "<br>" + "<br>" + "<br>";
-                document.getElementById("text-comentario").value = ""
-            }
+    document.getElementById("enviar").addEventListener("click", function () {
+        var d = new Date();
+        let ncomentario = {
+            
+            score: getRating(),
+            description: document.getElementById("nuevo-comentario").value,
+            user: JSON.parse(localStorage.getItem("nombreUsuario")).username,
+            dateTime: d.toLocaleDateString() + " " + d.toLocaleTimeString()
+        };
 
-        });
-    });  //HASTA ACA NO TOCAR NADA!!!!!
+        comentariosArray.push(ncomentario);
+        mostrarComentarios(comentariosArray);
 
-
-    /*arrayComentarios.forEach(function (coment) {
-        let puntos = "";
-        if (coment.)
-        */
-    //});
+    });
 
     function getRating() {
-        var elements = document.getElementById("rating");
+        var elements = document.getElementsByName("rating");
         for (var i = 0; i < elements.length; i++) {
             if (elements[i].checked) {
                 return parseInt(elements[i].value)
@@ -110,65 +125,69 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     }
     document.addEventListener("DOMContentLoaded", function (e) {
-        document.getElementById("Stars").innerHTML = ` 
+        console.log("jjj")
+        document.getElementById("stars").innerHTML = ` 
                                                 <div class="star-rating">
-                                                <input id="star-5" type="radio" name="rating" value="5" />
-                                                <label for="star-5" title="5 stars">
-                                                <i class="active fa fa-star></i>
-                                                </label>
-
-                                                <input id="star-4" type="radio" name="rating" value="4" />
-                                                <label for="star-4" title="4 stars">
-                                                <i class="active fa fa-star></i>
-                                                </label>
-
-                                                <input id="star-3" type="radio" name="rating" value="3" />
-                                                <label for="star-3" title="3 stars">
-                                                <i class="active fa fa-star></i>
-                                                </label>
-
-                                                <input id="star-2" type="radio" name="rating" value="2" />
-                                                <label for="star-2" title="2 stars">
-                                                <i class="active fa fa-star></i>
-                                                </label>
-
-                                                <input id="star-1" type="radio" name="rating" value="1" />
+                                                <input style="display: none" id="star-1" type="radio" name="rating" value="1" />
                                                 <label for="star-1" title="1 stars">
-                                                <i class="active fa fa-star></i>
+                                                <i class="active fa fa-star"></i>
                                                 </label>
 
-                                                </div> `
+                                                <input style="display: none" id="star-2" type="radio" name="rating" value="2" />
+                                                <label for="star-2" title="2 stars">
+                                                <i class="active fa fa-star"></i>
+                                                </label>
+
+                                                <input style="display: none" id="star-3" type="radio" name="rating" value="3" />
+                                                <label for="star-3" title="3 stars">
+                                                <i class="active fa fa-star"></i>
+                                                </label>
+
+                                                <input style="display: none" id="star-4" type="radio" name="rating" value="4" />
+                                                <label for="star-4" title="4 stars">
+                                                <i class="active fa fa-star"></i>
+                                                </label>
+
+                                                <input style="display: none" id="star-5" type="radio" name="rating" value="5" />
+                                                <label for="star-5" title="5 stars">
+                                                <i class="active fa fa-star"></i>
+                                                </label>
+
+                                                </div> `;
 
 
     });
-});
-var slideIndex = 1;
-showSlides(slideIndex);
 
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
 
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
 
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
-}
+    //funcion de las imagenes
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
