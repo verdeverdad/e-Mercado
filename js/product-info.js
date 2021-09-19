@@ -10,6 +10,21 @@ document.addEventListener("DOMContentLoaded", function (e) {
             let categoria = document.getElementById("categoria");
             let relevancia = document.getElementById("relevancia");
             let prodRelacionados = document.getElementById("prodRelacionados");
+            let imagenes = document.getElementById("imagenes");
+
+
+            function mostrarImagenes(array) {
+                let contenido = ""
+                for (let i = 0; i < producto.images.length; i++) {
+                    if (i == 0) {
+                        contenido += "<div class='carousel-item active'><img src='" + producto.images[i] + "' ></div>";
+                    }
+                    else {
+                        contenido += "<div class='carousel-item '><img src='" + producto.images[i] + "' ></div>";
+                    }
+                }
+                imagenes.innerHTML = contenido;
+            }
 
 
             titulo.innerHTML = producto.name
@@ -20,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             relevancia.innerHTML = "Relevancia: " + producto.soldCount
             prodRelacionados.innerHTML = "Productos relacionados: " + producto.relatedProducts
 
-
+            mostrarImagenes(imagenes);
 
         }
 
@@ -87,6 +102,7 @@ function mostrarComentarios(array) {
 
     document.getElementById("comentarios").innerHTML = contenido;
 }
+
 document.addEventListener("DOMContentLoaded", function (e) {
 
     getJSONData(PRODUCTOS_INFO_COMMENTS_URL).then(function (response) {
@@ -99,34 +115,35 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 });
 
-    //HASTA ACA NO TOCAR NADA!!!!!
+//HASTA ACA NO TOCAR NADA!!!!!
 
-    document.getElementById("enviar").addEventListener("click", function () {
-        var d = new Date();
-        let ncomentario = {
-            
-            score: getRating(),
-            description: document.getElementById("nuevo-comentario").value,
-            user: JSON.parse(localStorage.getItem("nombreUsuario")).username,
-            dateTime: d.toLocaleDateString() + " " + d.toLocaleTimeString()
-        };
+document.getElementById("enviar").addEventListener("click", function () {
+    console.log("funcionaaaa")
+    var d = new Date();
+    let ncomentario = {
 
-        comentariosArray.push(ncomentario);
-        mostrarComentarios(comentariosArray);
+        score: getRating(),
+        description: document.getElementById("nuevo-comentario").value,
+        user: JSON.parse(localStorage.getItem("nombreUsuario")).username,
+        dateTime: d.toLocaleDateString() + " " + d.toLocaleTimeString()
+    }
 
-    });
+    comentariosArray.push(ncomentario);
+    mostrarComentarios(comentariosArray);
 
-    function getRating() {
-        var elements = document.getElementsByName("rating");
-        for (var i = 0; i < elements.length; i++) {
-            if (elements[i].checked) {
-                return parseInt(elements[i].value)
-            }
+});
+
+function getRating() {
+    var elements = document.getElementsByName("rating");
+    for (var i = 0; i < elements.length; i++) {
+        if (elements[i].checked) {
+            return parseInt(elements[i].value)
         }
     }
-    document.addEventListener("DOMContentLoaded", function (e) {
-        console.log("jjj")
-        document.getElementById("stars").innerHTML = ` 
+}
+document.addEventListener("DOMContentLoaded", function (e) {
+
+    document.getElementById("stars").innerHTML = ` 
                                                 <div class="star-rating">
                                                 <input style="display: none" id="star-1" type="radio" name="rating" value="1" />
                                                 <label for="star-1" title="1 stars">
@@ -156,38 +173,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
                                                 </div> `;
 
 
-    });
+});
 
 
-
-    //funcion de las imagenes
-    var slideIndex = 1;
-    showSlides(slideIndex);
-
-    // Next/previous controls
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
-
-    // Thumbnail image controls
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("demo");
-        var captionText = document.getElementById("caption");
-        if (n > slides.length) { slideIndex = 1 }
-        if (n < 1) { slideIndex = slides.length }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-        captionText.innerHTML = dots[slideIndex - 1].alt;
-    }
