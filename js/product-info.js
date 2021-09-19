@@ -130,6 +130,7 @@ document.getElementById("enviar").addEventListener("click", function () {
 
     comentariosArray.push(ncomentario);
     mostrarComentarios(comentariosArray);
+    document.getElementById("nuevo-comentario").value = "";
 
 });
 
