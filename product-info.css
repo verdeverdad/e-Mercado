@@ -29,7 +29,7 @@ box-sizing: border-box;
 }
 
 /* Position the image container (needed to position the left and right arrows) */
-.container {
+.container2 {
 position: relative;
 }
 
@@ -52,7 +52,7 @@ top: 40%;
 width: auto;
 padding: 16px;
 margin-top: -50px;
-color: white;
+color: rgb(243, 248, 242);
 font-weight: bold;
 font-size: 20px;
 border-radius: 0 3px 3px 0;
