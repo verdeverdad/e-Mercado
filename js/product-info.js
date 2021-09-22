@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 
+
 const PRODUCTOS_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
 
 var getJSONData = function (url) { // esperamos la respuesta
