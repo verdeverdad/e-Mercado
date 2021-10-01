@@ -1,3 +1,66 @@
+var arrayProd = [];
+var arrayRela = []
+
+function mostrarLista(array, array1) {
+    //console.log(array, array1)
+    let contenido = "";
+    for (let i = 0; i < array1.length; i++) {
+
+        document.getElementById("productosRelacionados").innerHTML += array[array1[i]]
+
+        let productRelacionado = array[array1[i]]
+        contenido += "<div class='card'> <img src='" + productRelacionado.imgSrc + "' style='width: 300%;' class='card-img-top img-thumbnail'>" + "<br>";
+        contenido += "Nombre: " + productRelacionado.name + "<br>";
+       // contenido += "Descripción: " + productRelacionado.description + "<br>";
+        contenido += "Precio: " + productRelacionado.cost + "<br>";
+        contenido += "Relevancia: " + productRelacionado.soldCount + "<br>" + "<br>";
+        contenido += "<a class='btn btn-light'href='product-info.html'>Más info</a></div>";
+        
+
+        document.getElementById("productosRelacionados").innerHTML = contenido;
+
+        // }
+    }
+}
+
+
+document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(PRODUCTS_URL).then(function (response) {
+        if (response.status === "ok") {
+
+            arrayProd = response.data;
+
+
+
+            getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
+                console.log(resultObj.data)
+                arrayRela = resultObj.data.relatedProducts;
+
+            //arrayRela = [1, 3]
+            console.log(arrayProd, arrayRela)
+            mostrarLista(arrayProd, arrayRela)
+
+            });
+
+        }
+
+    });
+
+
+    /* getJSONData(PRODUCTS_URL).then(function (response) {
+         if (response.status === "ok") {
+ 
+             arrayRela = response.data;
+         }
+     });*/
+
+
+});
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
@@ -9,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             let moneda = document.getElementById("moneda");
             let categoria = document.getElementById("categoria");
             let relevancia = document.getElementById("relevancia");
-            let prodRelacionados = document.getElementById("prodRelacionados");
+            //let prodRelacionados = document.getElementById("prodRelacionados");
             let imagenes = document.getElementById("imagenes");
 
 
@@ -27,16 +90,18 @@ document.addEventListener("DOMContentLoaded", function (e) {
             }
 
 
+    
+
             titulo.innerHTML = producto.name
             descripcion.innerHTML = "Descripción: " + producto.description
             precio.innerHTML = "Precio: " + producto.cost
             moneda.innerHTML = "Moneda: " + producto.currency
             categoria.innerHTML = "Categoría: " + producto.category
             relevancia.innerHTML = "Relevancia: " + producto.soldCount
-            prodRelacionados.innerHTML = "Productos relacionados: " + producto.relatedProducts
+            // prodRelacionados.innerHTML = "Productos relacionados: " + producto.relatedProducts
 
             mostrarImagenes(imagenes);
-
+            // mostrarProdRela();
         }
 
     });
@@ -116,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 });
 
-//HASTA ACA NO TOCAR NADA!!!!!
+
 
 document.getElementById("enviar").addEventListener("click", function () {
     console.log("funcionaaaa")

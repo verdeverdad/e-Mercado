@@ -31,16 +31,30 @@
   </head>
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
-        <div class="container d-flex flex-column flex-md-row justify-content-between">
-            <a class="py-2 d-none d-md-inline-block" href="inicio.html">Inicio</a>
-            <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-            <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-            <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-            <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-            <a id="usuario" class="py-2 d-none d-md-inline-block" href="inicio.html"></a>
-            <button id="salir" class="btn btn-outline-light"><strong>Salir</strong></button>
-      
+
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+  
+        <a class="py-2 d-none d-md-inline-block" href="inicio.html">Inicio</a>
+        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+        <input type="search" id="buscar" class="bg-light navbar-dark btn-outline-light" placeholder=" buscar" />
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Mi Perfil
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="cart.html">Mi carrito</a>
+            <a class="dropdown-item" href="cart.html">Mis compras</a>
+          <a class="dropdown-item" href="sell.html">Mis ventas</a>
+            <a class="dropdown-item" href="Perfil.html">Mi Perfil</a>
+            <a id="salir" class="btn btn-outline-light"><strong>Cerrar sesion</strong></a>
+          </div>
         </div>
+  
+      </div>
+  
     </nav>
       <div class="container">
         <div class="text-center p-4">

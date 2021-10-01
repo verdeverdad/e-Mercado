@@ -15,9 +15,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="product-info.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
   <style>
     /* Make the image fully responsive */
     .carousel-inner img {
@@ -28,22 +26,36 @@
 </head>
 
 <body>
-  <!-- barra de inicio arriba del todo-->
   <nav class="site-header sticky-top py-1 bg-dark">
+
     <div class="container d-flex flex-column flex-md-row justify-content-between">
+
       <a class="py-2 d-none d-md-inline-block" href="inicio.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <a id="usuario" class="py-2 d-none d-md-inline-block" href="inicio.html"></a>
-      <button id="salir" class="btn btn-outline-light"><strong>Salir</strong></button>
       <input type="search" id="buscar" class="bg-light navbar-dark btn-outline-light" placeholder=" buscar" />
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Mi Perfil
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <a class="dropdown-item" href="cart.html">Mis compras</a>
+          <a class="dropdown-item" href="sell.html">Mis ventas</a>
+          <a class="dropdown-item" href="Perfil.html">Mi Perfil</a>
+          <a id="salir" class="btn btn-outline-light"><strong>Cerrar sesion</strong></a>
+        </div>
+      </div>
+
     </div>
+
   </nav>
+ 
+
+
   <div class="container p-5">
-
-
     <div id="Producto" class="container p-5">
       <dl id="dl" class=".justify-content-*">
         <h2 id="titulo"></h2><br>
@@ -85,23 +97,28 @@
 
 
     <div>
-      
+
       <h3>Comentarios:</h3>
       <textarea id="nuevo-comentario" rows="4" cols="40" placeholder="Escribe aqui..."></textarea>
-      
+
       <div id="stars">
 
       </div>
-     
+
       <button id="enviar" class="btn btn-outline-dark">Enviar</button>
-      <br>
+      <br><br><br>
+    </div>
+    <div>
+      <h4><strong>Productos Relacionados: </strong></h4>
+    </div>
+    <div id="productosRelacionados" class="d-flex justify-content-between">
+
     </div>
 
 
+  </div>
 
 
-  </div>
-  </div>
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
