@@ -11,11 +11,11 @@ function mostrarLista(array, array1) {
         let productRelacionado = array[array1[i]]
         contenido += "<div class='card'> <img src='" + productRelacionado.imgSrc + "' style='width: 300%;' class='card-img-top img-thumbnail'>" + "<br>";
         contenido += "Nombre: " + productRelacionado.name + "<br>";
-       // contenido += "Descripción: " + productRelacionado.description + "<br>";
+        // contenido += "Descripción: " + productRelacionado.description + "<br>";
         contenido += "Precio: " + productRelacionado.cost + "<br>";
         contenido += "Relevancia: " + productRelacionado.soldCount + "<br>" + "<br>";
         contenido += "<a class='btn btn-light'href='product-info.html'>Más info</a></div>";
-        
+
 
         document.getElementById("productosRelacionados").innerHTML = contenido;
 
@@ -33,12 +33,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 
             getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
-                console.log(resultObj.data)
+
                 arrayRela = resultObj.data.relatedProducts;
 
-            //arrayRela = [1, 3]
-            console.log(arrayProd, arrayRela)
-            mostrarLista(arrayProd, arrayRela)
+                mostrarLista(arrayProd, arrayRela)
 
             });
 
@@ -47,17 +45,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 
 
-    /* getJSONData(PRODUCTS_URL).then(function (response) {
-         if (response.status === "ok") {
- 
-             arrayRela = response.data;
-         }
-     });*/
-
-
 });
-
-
 
 
 
@@ -90,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             }
 
 
-    
+
 
             titulo.innerHTML = producto.name
             descripcion.innerHTML = "Descripción: " + producto.description
@@ -184,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 
 document.getElementById("enviar").addEventListener("click", function () {
-    console.log("funcionaaaa")
+    
     var d = new Date();
     let ncomentario = {
 
