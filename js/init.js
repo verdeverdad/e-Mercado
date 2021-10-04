@@ -7,6 +7,8 @@ const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/pro
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 const PRODUCTOS_FIAT_URL = "https://verdeverdad.github.io/e-Mercado/fiat.json";
+const CARRITO_URL =  "https://japdevdep.github.io/ecommerce-api/cart/654.json"
+
 
 var showSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "block";
@@ -46,7 +48,7 @@ var getJSONData = function (url) {
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
 
-  let usuario = document.getElementById("dropdownMenuButton") 
+  let usuario = document.getElementById("miperfil") 
   let usuarioLogueado = JSON.parse(localStorage.getItem("nombreUsuario")) //traigo lo que quedo guardado en el set
   usuario.innerHTML =  usuarioLogueado.username; 
 
