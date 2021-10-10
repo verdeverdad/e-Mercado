@@ -1,54 +1,4 @@
-var arrayProd = [];
-var arrayRela = []
-
-function mostrarLista(array, array1) {
-    //console.log(array, array1)
-    let contenido = "";
-    for (let i = 0; i < array1.length; i++) {
-
-        document.getElementById("productosRelacionados").innerHTML += array[array1[i]]
-
-        let productRelacionado = array[array1[i]]
-        contenido += "<div class='card'> <img src='" + productRelacionado.imgSrc + "' style='width: 300%;' class='card-img-top img-thumbnail'>" + "<br>";
-        contenido += "Nombre: " + productRelacionado.name + "<br>";
-        // contenido += "Descripción: " + productRelacionado.description + "<br>";
-        contenido += "Precio: " + productRelacionado.cost + "<br>";
-        contenido += "Relevancia: " + productRelacionado.soldCount + "<br>" + "<br>";
-        contenido += "<a class='btn btn-light'href='product-info.html'>Más info</a></div>";
-
-
-        document.getElementById("productosRelacionados").innerHTML = contenido;
-
-        // }
-    }
-}
-
-
-document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCTS_URL).then(function (response) {
-        if (response.status === "ok") {
-
-            arrayProd = response.data;
-
-
-
-            getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
-
-                arrayRela = resultObj.data.relatedProducts;
-
-                mostrarLista(arrayProd, arrayRela)
-
-            });
-
-        }
-
-    });
-
-
-});
-
-
-
+//CONTENIDO E IMAGENES DEL PRODUCTO 
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
@@ -96,10 +46,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 
-
+//COMENTARIOS DEL PRODUCTO (saca la info del json y la mustra en una lista; agrega nuevos comentarios)
 const PRODUCTOS_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
 
-var getJSONData = function (url) { // esperamos la respuesta
+var getJSONData = function (url) { // esperamos la respuesta COMENTARIOS
     var result = {};
     return fetch(url)
         .then(response => {
@@ -132,13 +82,13 @@ function mostrarComentarios(array) {
     for (let i = 0; i < array.length; i++) {
         let comentario = array[i]
         let puntos = ""
-
+            //ESTRELLITAS MARCADAS
         if (comentario.score > 0 && comentario.score <= 5) {
             for (let i = 1; i <= comentario.score; i++) {
                 puntos += '<span class="fa fa-star checked"></span>';
 
             }
-
+            //COMPLETA ESTRELLITAS LIBRES
             for (let i = comentario.score + 1; i <= 5; i++) {
                 puntos += '<span class="fa fa-star"></span>';
             }
@@ -170,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 
-
+//NUEVO COMENTARIO
 document.getElementById("enviar").addEventListener("click", function () {
     
     var d = new Date();
@@ -188,6 +138,60 @@ document.getElementById("enviar").addEventListener("click", function () {
 
 });
 
+
+//PRODUCTOS RELACIONADOS (muestra la lista y saca la info del json)
+
+var arrayProd = [];
+var arrayRelacionados = []
+
+function mostrarLista(array, array1) {
+    //console.log(array, array1)
+    let contenido = "";
+    for (let i = 0; i < array1.length; i++) {
+
+        document.getElementById("productosRelacionados").innerHTML += array[array1[i]]
+
+        let productRelacionado = array[array1[i]]
+        contenido += "<div class='card'> <img src='" + productRelacionado.imgSrc + "' style='width: 300%;' class='card-img-top img-thumbnail'>" + "<br>";
+        contenido += "Nombre: " + productRelacionado.name + "<br>";
+        // contenido += "Descripción: " + productRelacionado.description + "<br>";
+        contenido += "Precio: " + productRelacionado.cost + "<br>";
+        contenido += "Relevancia: " + productRelacionado.soldCount + "<br>" + "<br>";
+        contenido += "<a class='btn btn-light'href='product-info.html'>Más info</a></div>";
+
+
+        document.getElementById("productosRelacionados").innerHTML = contenido;
+
+        // }
+    }
+}
+
+
+document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(PRODUCTS_URL).then(function (response) {
+        if (response.status === "ok") {
+
+            arrayProd = response.data;
+
+
+
+            getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
+
+                arrayRelacionados = resultObj.data.relatedProducts;
+
+                mostrarLista(arrayProd, arrayRelacionados)
+
+            });
+
+        }
+
+    });
+
+
+});
+
+//ESTRELLITAS (funcion de elementos chequeados y agrega el contenido grafico)
+
 function getRating() {
     var elements = document.getElementsByName("rating");
     for (var i = 0; i < elements.length; i++) {
@@ -196,6 +200,8 @@ function getRating() {
         }
     }
 }
+
+
 document.addEventListener("DOMContentLoaded", function (e) {
 
     document.getElementById("stars").innerHTML = ` 
