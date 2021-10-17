@@ -13,21 +13,21 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="product-info.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-  .bd-placeholder-img {
-  font-size: 1.125rem;
-  text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  }
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
 
-  @media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-  font-size: 3.5rem;
-  }
-  }
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -99,31 +99,13 @@
       <div class="container p-5">
         <div role="alert" style="position: relative; width:auto; top: 0;">
           <div class="container p-5 row mb-3align-items-left">
+            <div class="col-75">
             <h4>PASO 1 de 3 Confirmar compra</h4>
           </div>
-          <div class="row">
-            <div id="carrito" class="container col-8">
-            </div>
-            <div class="col-4">
-              <div class="container p-5 box-shadow">
-                <h4>Productos
-                  <span class="price" style="color:rgb(233, 20, 20)">
-                    <i class="fa fa-shopping-cart"></i>
-                    <b>4</b>
-                  </span>
-                </h4>
-                <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-                <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-                <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-                <p><a href="#">Product 4</a> <span class="price">$2</span></p>
-                <hr>
-                <p>SubTotal <span class="price" style="color:black"><b>$30</b></span></p>
-                <p><a href="#">Envío</a> <span class="price">$200</span></p>
-                <hr>
-                <p>Total <span class="price" style="color:black"><b>$230</b></span></p>
-                <button class="btn btn" style="background-color: rgb(195, 248, 188);" id="paso2"><strong>Confirmar
-                    compra</strong> </button>
-              </div>
+          
+            <div id="carrito" >
+            
+          </div>
             </div>
             <div class="row">
               <div class="col-75">
@@ -144,14 +126,20 @@
                           <input type="email" id="email" name="email" placeholder="Email"><br>
                           <label for="adr"><i class="fa fa-address-card-o"></i> Dirección: </label>
                           <input type="text" id="adr" name="address" placeholder="Dirección">
-                          <input type="number" id="" name="zip" placeholder="N°" rows="5" pattern="[0-9]{3}">
+                          <input type="number" id="" name="zip" placeholder="N°/esquina/detalles" rows="5"
+                            pattern="[0-9]{3}">
                           <label for="city"><i class="fa fa-institution"></i> Localidad</label>
                           <input type="text" id="city" name="city" placeholder="Localidad"><br>
-                          <label for="state" <i class="fa fa-map"></i> Departamento: </label>
+                          <label for="state"><i class="fa fa-map"></i> Departamento: </label>
                           <input type="text" id="state" name="state" placeholder="Departamento">
                           <label for="num"><i class="fa fa-phone"></i>Número de contacto: </label>
-                          <input type="tel" rows="9" id="num" name="numero" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" placeholder="123 456 789">
-                          <hr>
+                          <input type="tel" rows="9" id="num" name="numero" pattern="[0-9]{3}[0-9]{3}[0-9]{3}"
+                            placeholder="123 456 789"><br>
+                          <h4>Tipo de envio: </h4>
+                          <input type="radio" class="local" name="premium"> Premium (2-5 días) - Costo del 15% sobre el subtotal.<br>
+                          <input type="radio" class="local" name="express"> Express (5-8 días) - Costo del 7% sobre el subtotal.<br>
+                          <input type="radio" class="local" name="standard"> Standard (12 a 15 días) - Costo del 5% sobre el subtotal.<hr>
+
                         </div>
                         <div>
                           <h3>
@@ -190,17 +178,22 @@
                           <i class="fa fa-cc-mastercard" style="color:red;"></i>
                           <i class="fa fa-cc-discover" style="color:orange;"></i>
                         </div>
-                        <label for="cname">Companía: </label>
-                        <input type="text" id="cname" name="cardname" placeholder="John More Doe">
-                        <label for="ccnum">Número de tarjeta</label>
-                        <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-                        <label for="expmonth">Año:</label>
-                        <input type="text" id="expmonth" name="expmonth" placeholder="September">
-                        <label for="expyear">Exp Año</label>
-                        <input type="text" id="expyear" name="expyear" placeholder="2018">
-                        <label for="cvv">CVV</label>
-                        <input type="text" id="cvv" name="cvv" placeholder="352">
-                        <br><br>
+                        <div class="container p-5 row ">
+                          
+                          <label for="cname">Companía: </label>
+                          <input type="text" id="cname" name="cardname" placeholder="Fulano de Tal">
+                          <label for="ccnum">Número de tarjeta</label>
+                          <input type="text" id="ccnum" name="cardnumber" placeholder="1234-5678-9012-3456"><br>
+                          <label for="expmonth">Mes:</label>
+                          <input type="text" id="expmonth" name="expmonth" placeholder="Setiembre">
+                          <label for="expmonth">Año:</label>
+                          <input type="text" id="expmonth" name="expmonth" placeholder="2018"><br>
+                          <label for="expyear">Exp Año</label>
+                          <input type="text" id="expyear" name="expyear" placeholder="20122">
+                          <label for="cvv">CVV</label>
+                          <input type="text" id="cvv" name="cvv" placeholder="352">
+                          <br><br>
+                        </div>
                       </div>
 
                       <div>
@@ -208,7 +201,8 @@
                           <input type="checkbox" checked="checked" name="sameadr"><a href="#">Acepto los terminos y
                             condiciones</a>
                         </label><br>
-                        <button class="btn btn"style="background-color: rgb(167, 204, 252); id='paso3'"><strong>Confirmar
+                        <button class="btn btn"
+                          style="background-color: rgb(167, 204, 252);"" id='paso3'><strong>Confirmar
                             metodo de pago </strong></button>
                       </div>
                     </div>
