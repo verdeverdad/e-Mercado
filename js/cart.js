@@ -69,7 +69,6 @@ function totalSub() {
     for (let i = 0; i < sub.length; i++) {
         total += parseInt(sub[i].innerHTML);
         
-
     }
     document.getElementById("totalSub").innerHTML = total
 }
@@ -87,7 +86,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(CARRITO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             comprado = resultObj.data.articles;
-
 
             mostrarCarrito(comprado);
 
