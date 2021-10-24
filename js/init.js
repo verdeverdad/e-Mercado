@@ -50,7 +50,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
   let usuario = document.getElementById("miperfil") 
   let usuarioLogueado = JSON.parse(localStorage.getItem("nombreUsuario")) //traigo lo que quedo guardado en el set
-  usuario.innerHTML =  usuarioLogueado.username; 
+  usuario.innerHTML =  usuarioLogueado.username 
+
+ 
 
   document.getElementById("salir").addEventListener("click", function () { //el boton salir va a hacer lo siguiente
     localStorage.removeItem("nombreUsuario");
@@ -59,6 +61,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 });
 
+document.addEventListener("DOMContentLoaded", function (e) {
 
-
-
+  let nameRegistrado = document.getElementById("miperfil")
+  let nameRegistradoLogueado = JSON.parse(localStorage.getItem("nameRegistrado")) //traigo lo que quedo guardado en el set
+  nameRegistrado.innerHTML = nameRegistradoLogueado.nameRegistrado
+  
+});
