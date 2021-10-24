@@ -12,177 +12,200 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="product-info.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <style>
-    html,
-    body {
-      height: 100%;
-    }
 
-    body {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-      align-items: center;
-      padding-top: 40px;
-      padding-bottom: 40px;
-      background-image: linear-gradient(to right, rgb(132, 241, 255), rgb(206, 255, 142));
-      color: rgb(16, 146, 146);
-    text-shadow: 1px 1px rgb(255, 125, 19);
-      border: 6px solid rgb(143, 224, 143);
-      margin: 20px;
-      padding: 40px;
-      box-shadow: 0px 0px 15px currentcolor;
-    }
-
-    .signin {
-      width: 100%;
-      max-width: 330px;
-      padding: 15px;
-      margin: auto;
-
-    }
-
-    h2 {
-      text-align: center;
-      text-shadow: 4px 4px 4px #ffffff;
-      font-weight: bold;
-
-    }
-
-    .login {
-      
-      color: rgb(3, 49, 3);
-      font-weight: bold;
-      text-shadow: 1px 1px rgb(49, 243, 59);
-      font-style: oblique;
-      border: 8px solid rgb(13, 196, 125);
-      margin: 20px;
-      padding: 50px;
-     }
-
-/* Full-width inputs */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-/* Set a style for all buttons */
-button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-/* Add a hover effect for buttons */
-button:hover {
-  opacity: 0.8;
-}
-
-/* Extra style for the cancel button (red) */
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-}
-
-/* Center the avatar image inside this container */
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-}
-
-/* Avatar image */
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
-/* Add padding to containers */
-.container {
-  padding: 16px;
-}
-
-/* The "Forgot password" text */
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-    display: block;
-    float: none;
-  }
-  .cancelbtn {
-    width: 100%;
-  }
-}
-    
-  </style>
 </head>
 
 
-      <body  class="login">
-        <div class="container p-5">
-          
-            <div class="container p-8">
-            <form class="login " action="inicio.html" method="GET">
-              <h2>Por favor regístrese</h2>
-                <div>
-                  <label>Nombre de usuario:</label>
-                  <input type="text" name="username" id="username" placeholder="Escriba su nombre aquí" required />
-                </div>
-                <div>
-                  <label>Correo electrónico:</label>
-                  <input type="text" name="email" id="email" placeholder="Email" required />
-                </div>
-                <div>
-                  <label>Contraseña:</label>
-                  <input type="password" name="password" id="password" placeholder="Contraseña" required />
-                </div>
-      
-                <input type="checkbox">
-                <label>Recordarme</label><br>
-      
-                <button type="submit" name="register" onclick="click_al_register()">
-                  <strong>Registrar</strong>
-                </button>
-      
-            </form>
-            
-          </div>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <h2>Por favor regístrese</h2>
+      </div>
+
+    </div>
+
+    <div>
+
+
+      <button type="button" id="is" class="btn btn-lg  btn-block" data-toggle="modal" data-target="#exampleModal"
+        style="background-color: rgb(60, 243, 130);">
+        Ya estoy registrad@
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Iniciar sesion</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+              </button>
+            </div>
+            <div class="modal-body">
+              <label>Nombre de usuario:</label>
+              <input type="text" class="form-control" name="username" id="nameRegistrado"
+                placeholder="Nombre de usuario" required />
+              <label for="password">Contraseña:</label>
+              <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña"
+                required />
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn" style="background-color: rgb(60, 243, 130);" onclick="sesion()">iniciar
+                sesion</button>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+
+
+    <div>
+      <form>
+        <div class="form-row">
+          <div class=" form-group col-sm-6">
+            <label>Nombre de usuario:</label>
+            <input type="text" class="form-control" name="username" id="username"
+              placeholder="Este será su nombre de usuario" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-sm-9">
+            <label for="nombre">Nombre completo: </label>
+            <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre completo">
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="Edad">Edad: </label>
+            <input type="text" class="form-control" id="edad" placeholder="Ingrese su edad">
+          </div>
+        </div>
+        <div class="form-group ">
+          <label for="Email">Email: </label>
+          <input type="email" class="form-control" id="email" placeholder="Ingrese su Email">
+        </div>
+
+        <div class="form-row">
+          <div class="form group col-sm-9">
+            <label for="direccion">Dirección: </label>
+            <input type="text" class="form-control" id="direccion" placeholder="Ingrese su Dirección">
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="departamento">Departamento: </label>
+            <select id="departamento" class="form-control">
+              <option selected>Montevideo</option>
+              <option>Canelones</option>
+              <option>Maldonado</option>
+              <option>Colonia</option>
+              <option>San José</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form group col-sm-9">
+            <label for="nContacto">Número de contacto: </label>
+            <input type="text" class="form-control" id="nContacto" placeholder="Ingrese su número de contacto">
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="sexo">Sexo: </label>
+            <select id="sexo" class="form-control">
+              <option selected>Seleccione</option>
+              <option>Femenino</option>
+              <option>Masculino</option>
+              <option>LGTBIQ+</option>
+              <option>Prefiero no declarar</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-sm-6">
+            <label for="password">Contraseña:</label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña"
+              required />
+          </div>
+          <div class=" form-group col-sm-6">
+            <label for="cpassword">Confirmar contraseña:</label>
+            <input type="password" class="form-control" name="cpassword" id="cpassword"
+              placeholder="Confirmar contraseña" required />
+          </div>
+
+        </div>
+
+
+        <div class="form-group">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="check">
+            <label class="form-check-label" for="check">Recordarme</label><br>
+
+          </div>
+        </div>
+        <div>
+          <button onclick="click_al_register()" id="guardarP" type="submit" name="register" class="btn btn col-sm-4 "
+            style="background-color: rgb(88, 247, 122);">
+            <strong>Registrarse</strong></button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
 
   <script>
 
     function click_al_register() {
 
-      var username = document.getElementById("username").value
-      var email = document.getElementById("email").value
-      var password = document.getElementById("password").value
+      event.preventDefault();
+      var username = document.getElementById("username").value;
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var cpassword = document.getElementById("cpassword").value;
+      var direccion = document.getElementById("direccion").value;
 
-      if (username != "" && email != "" && password != "") {
+      var nombre = document.getElementById("nombre").value;
+      var edad = document.getElementById("edad").value;
+      var nContacto = document.getElementById("nContacto").value;
+
+      if (username != "" && password != "" && email != "" && cpassword != "" && nombre != "" && edad != "" && nContacto != "") {
 
         localStorage.setItem("nombreUsuario", JSON.stringify({ username: username }));
-        window.location.href = 'inicio.html';
+        localStorage.setItem("nombre", JSON.stringify({ nombre: nombre }));
+        localStorage.setItem("email", JSON.stringify({ email: email }));
+        localStorage.setItem("password", JSON.stringify({ password: password }));
+        localStorage.setItem("cpassword", JSON.stringify({ cpassword: cpassword }));
+        localStorage.setItem("direccion", JSON.stringify({ direccion: direccion }));
+        localStorage.setItem("edad", JSON.stringify({ edad: edad }));
+        localStorage.setItem("nContacto", JSON.stringify({ nContacto: nContacto }));
+        localStorage.setItem("departamento", JSON.stringify({ departamento: departamento }));
+        localStorage.setItem("sexo", JSON.stringify({ sexo: sexo }));
 
-      }
+        console.log("window.location")
+
+
+      } window.location.href = 'inicio.html';
     }
 
+   
+    function sesion() {
+      var nameRegistrado = document.getElementById("nameRegistrado").value;
+      localStorage.setItem("nameRegistrado", JSON.stringify({ nameRegistrado: nameRegistrado }));
+      window.location.href = 'inicio.html';
+    }
   </script>
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/login.js"></script>
+  <script src="js/categories.js"></script>
+
+  <scrip src="js/my-profile.js">
+    </script>
 </body>
 
 </html>
