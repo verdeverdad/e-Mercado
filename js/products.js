@@ -64,16 +64,30 @@ function mostrarLista(array) {
 
       if (buscar == undefined || producto.name.toLowerCase().includes(buscar)) {
 
-        contenido += "<img src='"+ producto.imgSrc + "' style='width: 30%; float: right;' class='img-thumbnail'>" +  "<br>";
-        contenido += "Nombre: " + producto.name + "<br>";
+        contenido += "<div class='row'>"
+        contenido += "<div class='col-sm-4 col-md-4 col-lg-4 '>"
+       contenido += "<div class='card' style='width: 18rem; flex: 1 200px; margin-top: 10px;'>"
+        contenido += "<div class='card-body'>"
+        contenido += "<h4 class='card-title'>" + "Nombre: " + producto.name  + "</h4>" + "<br>";
+        contenido += "<img class='card-img-top' src='"+ producto.imgSrc + "'  alt='Responsive image' style='width:100%;'>";
+        
+        contenido += "<div class='card-text'>"
         contenido += "Descripción: " + producto.description + "<br>";
         contenido += "Precio: " + producto.cost + "<br>" ;
         contenido += "Relevancia: " + producto.soldCount + "<br>";
-        contenido += "<a href='product-info.html'>Más info</a>"
+        contenido += "<a href='product-info.html' class='btn btn-card btn-outline-dark'>Más info</a>"
+        contenido += "</div>"
+        
+        contenido += "</div>"
+        contenido += "</div>"
+        contenido += "</div>"
+        contenido += "</div>"
         contenido += "<br><br><hr>"
+
+        
         
       }
-    document.getElementById("Productos").innerHTML = contenido;
+    document.getElementById("Productos").innerHTML = "<div class='row'>" + contenido + "</div>";
       
   }
 }
