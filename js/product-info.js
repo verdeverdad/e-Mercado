@@ -162,7 +162,7 @@ function mostrarLista(array, array1) {
 
         document.getElementById("productosRelacionados").innerHTML = contenido;
 
-        // }
+        
     }
 }
 
