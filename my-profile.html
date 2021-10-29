@@ -88,22 +88,34 @@
           <h5 id="nomUsu"class="card-title"></h5>
           <p class="card-text"></p>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item" id="nombre"></li>
-          <li class="list-group-item" id="edad"></li>
-          <li class="list-group-item" id="email"></li>
-          <li class="list-group-item" id="direccion"></li>
+        <ul id="ulNoEditable" class="list-group list-group-flush">
+          <li class="list-group-item m-2" id="nombre" contenteditable="false">Nombre de usuario: </li>
+          <li class="list-group-item m-2" id="edad" contenteditable="false"></li>
+          <li class="list-group-item m-2" id="email"contenteditable="false"></li>
+          <li class="list-group-item m-2" id="direccion"contenteditable="false"></li>
           
-          <li class="list-group-item" id="numContacto"></li>
+          <li class="list-group-item m-2" id="numContacto"contenteditable="false"></li>
           
         </ul>
+       <!--<ul id="ulEditable" class="list-group list-group-flush" style="display: none;">
+          <li class="list-group-item m-2" id="edNombre" contenteditable="true" ></li>
+          <li class="list-group-item m-2" id="edEdad" contenteditable="true"></li>
+          <li class="list-group-item m-2" id="edEmail" contenteditable="true"></li>
+          <li class="list-group-item m-2" id="edDireccion" contenteditable="true"></li>
+          
+          <li class="list-group-item m-2" id="edNumContacto" contenteditable="true"></li>
+          
+        </ul>--> 
         <div class="card-body">
           <button id="modificarP" type="submit" onclick="modificar()" class="btn btn col-sm-4" style="background-color: rgb(57, 231, 243);">
             Modificar</button>
+            <button id="bguardar" type="submit"onclick="guardarModificados()" class="btn btn col-sm-4" style=" display: none; background-color: rgb(89, 255, 153);">
+              Guardar</button>
 
           <button id="EliminarP" type="submit" class="btn btn col-sm-4" style="background-color: rgb(60, 243, 130);">
             Eliminar
             perfil</button>
+            
         </div>
       </div>
 
