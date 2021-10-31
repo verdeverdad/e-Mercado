@@ -126,8 +126,8 @@
 
         <div class="form-row">
           <div class="form-group col-sm-6">
-            <label for="password">Contraseña:</label>
-            <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña" required />
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" class="form-control" name="contraseña" id="contraseña" placeholder="Contraseña" required />
           </div>
           <div class=" form-group col-sm-6">
             <label for="cpassword">Confirmar contraseña:</label>
@@ -163,21 +163,20 @@
       event.preventDefault();
       var username = document.getElementById("username").value;
       var email = document.getElementById("email").value;
-      var password = document.getElementById("password").value;
-      console.log("el password es: " + password)
+      var contraseña = document.getElementById("contraseña").value;
+      //console.log("el contraseña es: " + contraseña)
       var cpassword = document.getElementById("cpassword").value;
       var direccion = document.getElementById("direccion").value;
-
       var nombre = document.getElementById("nombre").value;
       var edad = document.getElementById("edad").value;
       var nContacto = document.getElementById("nContacto").value;
      // if (username && email && cpassword &&  ) {
-      if (username != "" && email != "" && cpassword != "" && nombre != "" && edad != "" && nContacto != "") {
+      if (username != "" && email != "" && cpassword != "" && contraseña != "" && nombre != "" && edad != "" && nContacto != "") {
         console.log(username)
         localStorage.setItem("nombreUsuario", JSON.stringify({ username: username }));
         localStorage.setItem("nombre", JSON.stringify({ nombre: nombre }));
         localStorage.setItem("email", JSON.stringify({ email: email }));
-        localStorage.setItem("password", JSON.stringify({ password: password }));
+        localStorage.setItem("contraseña", JSON.stringify({ contraseña: contraseña }));
         localStorage.setItem("cpassword", JSON.stringify({ cpassword: cpassword }));
         localStorage.setItem("direccion", JSON.stringify({ direccion: direccion }));
         localStorage.setItem("edad", JSON.stringify({ edad: edad }));
