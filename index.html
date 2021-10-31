@@ -78,22 +78,22 @@
         <div class="form-row">
           <div class="form-group col-sm-9">
             <label for="nombre">Nombre completo: </label>
-            <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre completo">
+            <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre completo" required>
           </div>
           <div class="form-group col-sm-3">
             <label for="Edad">Edad: </label>
-            <input type="text" class="form-control" id="edad" placeholder="Ingrese su edad">
+            <input type="text" class="form-control" id="edad" placeholder="Ingrese su edad" required>
           </div>
         </div>
         <div class="form-group ">
           <label for="Email">Email: </label>
-          <input type="email" class="form-control" id="email" placeholder="Ingrese su Email">
+          <input type="email" class="form-control" id="email" placeholder="Ingrese su Email" required>
         </div>
 
         <div class="form-row">
           <div class="form group col-sm-9">
             <label for="direccion">Dirección: </label>
-            <input type="text" class="form-control" id="direccion" placeholder="Ingrese su Dirección">
+            <input type="text" class="form-control" id="direccion" placeholder="Ingrese su Dirección" required>
           </div>
           <div class="form-group col-sm-3">
             <label for="departamento">Departamento: </label>
@@ -110,7 +110,7 @@
         <div class="form-row">
           <div class="form group col-sm-9">
             <label for="nContacto">Número de contacto: </label>
-            <input type="text" class="form-control" id="nContacto" placeholder="Ingrese su número de contacto">
+            <input type="text" class="form-control" id="nContacto" placeholder="Ingrese su número de contacto" required>
           </div>
           <div class="form-group col-sm-3">
             <label for="sexo">Sexo: </label>
@@ -186,8 +186,8 @@
 
         console.log("window.location")
 
-
-      } window.location.href = 'inicio.html';
+        window.location.href = 'inicio.html';
+      } 
     }
 
    //guarda el nombre cuando inicia en el modal ya estoy registrado
