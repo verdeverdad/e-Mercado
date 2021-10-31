@@ -66,29 +66,29 @@ function mostrarLista(array) {
 
         contenido += "<div class='row'>"
         contenido += "<div class='col-sm-4 col-md-4 col-lg-4 '>"
-       contenido += "<div class='card' style='width: 18rem; flex: 1 200px; margin-top: 10px;'>"
+        contenido += "<div class='card' style='width: 18rem; flex: 1 200px; margin-top: 10px;'>"
         contenido += "<div class='card-body'>"
-        contenido += "<h4 class='card-title'>" + "Nombre: " + producto.name  + "</h4>" + "<br>";
-        contenido += "<img class='card-img-top' src='"+ producto.imgSrc + "'  alt='Responsive image' style='width:100%;'>";
-        
+        contenido += "<h4 class='card-title'>" + "Nombre: " + producto.name + "</h4>" + "<br>";
+        contenido += "<img class='card-img-top' src='" + producto.imgSrc + "'  alt='Responsive image' style='width:100%;'>";
+
         contenido += "<div class='card-text'>"
         contenido += "Descripción: " + producto.description + "<br>";
-        contenido += "Precio: " + producto.cost + "<br>" ;
+        contenido += "Precio: " + producto.cost + "<br>";
         contenido += "Relevancia: " + producto.soldCount + "<br>";
         contenido += "<a href='product-info.html' class='btn btn-card btn-outline-dark'>Más info</a>"
         contenido += "</div>"
-        
+
         contenido += "</div>"
         contenido += "</div>"
         contenido += "</div>"
         contenido += "</div>"
         contenido += "<br><br><hr>"
 
-        
-        
+
+
       }
     document.getElementById("Productos").innerHTML = "<div class='row'>" + contenido + "</div>";
-      
+
   }
 }
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
       productosArray = response.data;
 
       mostrarLista(productosArray);
-      
+
 
     }
 
@@ -111,7 +111,7 @@ document.getElementById("filtrar").addEventListener("click", function () {
 
   minPrecio = document.getElementById("minPrecio").value;
   maxPrecio = document.getElementById("maxPrecio").value;
- 
+
   if ((minPrecio != undefined) && (minPrecio != "") && (parseInt(minPrecio) >= 0)) {
     minPrecio = parseInt(minPrecio);
   }
@@ -174,7 +174,7 @@ document.getElementById("Minimo").addEventListener("click", function () {
 });
 
 //buscador
-document.getElementById("buscar").addEventListener('input', function() {
+document.getElementById("buscar").addEventListener('input', function () {
   buscar = document.getElementById("buscar").value.toLowerCase()
   //console.log("anda")
   mostrarLista(productosArray);
