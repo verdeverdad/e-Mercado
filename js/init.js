@@ -61,10 +61,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 });
 
-document.addEventListener("DOMContentLoaded", function (e) {
+/*document.addEventListener("DOMContentLoaded", function (e) {
 
   let nameRegistrado = document.getElementById("miperfil")
   let nameRegistradoLogueado = JSON.parse(localStorage.getItem("nameRegistrado")) //traigo lo que quedo guardado en el set
   nameRegistrado.innerHTML = nameRegistradoLogueado.nameRegistrado
   
-});
+});*/

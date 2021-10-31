@@ -1,25 +1,26 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-let nameRegistrado = document.getElementById("nomUsu")
-let nombre = document.getElementById("nombre")
-let edad = document.getElementById("edad")
-let email = document.getElementById("email")
-let direccion = document.getElementById("direccion")
-let nContacto = document.getElementById("numContacto")
+
+
+let nameRegis = document.getElementById("nomUsu");
+let nombre = document.getElementById("nombre");
+let edad = document.getElementById("edad");
+let email = document.getElementById("email");
+let direccion = document.getElementById("direccion");
+let nContacto = document.getElementById("numContacto");
 
 
 
-document.addEventListener("DOMContentLoaded", function (e) {
-
+document.addEventListener("DOMContentLoaded", function(){
 
     
-    let nameRegistradoLogueado = JSON.parse(localStorage.getItem("nameRegistrado")) //traigo lo que quedo guardado en el set
-    nameRegistrado.innerHTML = nameRegistradoLogueado.nameRegistrado
-
+   
+    
+    let nombreUsuario = JSON.parse(localStorage.getItem("nombreUsuario")) //traigo lo que quedo guardado en el set
+    console.log("nombreLogueado...::"+nombreUsuario.username)
+    nameRegis.innerHTML = "Nombre de usuario: " + nombreUsuario.username
+    
     
     let nombreLogueado = JSON.parse(localStorage.getItem("nombre")) //traigo lo que quedo guardado en el set
-    nombre.innerHTML = "Nombre completo: " + nombreLogueado.nombre
+    nombre.innerHTML =  nombreLogueado.nombre
 
     let edadLogueado = JSON.parse(localStorage.getItem("edad")) //traigo lo que quedo guardado en el set
     edad.innerHTML = "Edad: " + edadLogueado.edad
@@ -50,11 +51,26 @@ function modificar(){
 
     let bguardar = document.getElementById("bguardar");
     bguardar.style.display = "inline-block";
-
+    
 }
 
 function guardarModificados(){
     console.log(nomUsu.innerHTML)
+    nomUsu.contentEditable = "false"
+    nombre.contentEditable = "false"
+    edad.contentEditable = "false"
+    email.contentEditable = "false"
+    direccion.contentEditable = "false"
+    nContacto.contentEditable = "false"
+    console.log(nombre.innerHTML)
+    localStorage.setItem("nombre", JSON.stringify({ "nombre": nombre.innerHTML }));
+    localStorage.setItem("email", JSON.stringify({ "email": email.innerHTML }));
+    localStorage.setItem("direccion", JSON.stringify({ "direccion": direccion.innerHTML }));
+    
+    let bguardar = document.getElementById("bguardar");
+    bguardar.style.display = "none";
+    let bMod = document.getElementById("modificarP");
+    bMod.style.display = "inline-block"
 
-    localStorage.setItem("nameRegistrado", JSON.stringify({ nameRegistrado: nomUsu.innerHTML }));
+   
 }

@@ -127,8 +127,7 @@
         <div class="form-row">
           <div class="form-group col-sm-6">
             <label for="password">Contraseña:</label>
-            <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña"
-              required />
+            <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña" required />
           </div>
           <div class=" form-group col-sm-6">
             <label for="cpassword">Confirmar contraseña:</label>
@@ -141,7 +140,7 @@
 
         <div class="form-group">
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="check">
+            <input type="checkbox" class="form-check-input" id="check" >
             <label class="form-check-label" for="check">Recordarme</label><br>
 
           </div>
@@ -165,15 +164,16 @@
       var username = document.getElementById("username").value;
       var email = document.getElementById("email").value;
       var password = document.getElementById("password").value;
+      console.log("el password es: " + password)
       var cpassword = document.getElementById("cpassword").value;
       var direccion = document.getElementById("direccion").value;
 
       var nombre = document.getElementById("nombre").value;
       var edad = document.getElementById("edad").value;
       var nContacto = document.getElementById("nContacto").value;
-
-      if (username != "" && password != "" && email != "" && cpassword != "" && nombre != "" && edad != "" && nContacto != "") {
-
+     // if (username && email && cpassword &&  ) {
+      if (username != "" && email != "" && cpassword != "" && nombre != "" && edad != "" && nContacto != "") {
+        console.log(username)
         localStorage.setItem("nombreUsuario", JSON.stringify({ username: username }));
         localStorage.setItem("nombre", JSON.stringify({ nombre: nombre }));
         localStorage.setItem("email", JSON.stringify({ email: email }));
@@ -182,8 +182,8 @@
         localStorage.setItem("direccion", JSON.stringify({ direccion: direccion }));
         localStorage.setItem("edad", JSON.stringify({ edad: edad }));
         localStorage.setItem("nContacto", JSON.stringify({ nContacto: nContacto }));
-        localStorage.setItem("departamento", JSON.stringify({ departamento: departamento }));
-        localStorage.setItem("sexo", JSON.stringify({ sexo: sexo }));
+       
+        
 
         console.log("window.location")
 
