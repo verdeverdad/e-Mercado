@@ -16,7 +16,7 @@ function mostrarCarrito(array) {
         contenido += "<div id='elemento" + i + "' class='border  border-white'>"
 
         contenido += "<img src='" + carrito.src + "' style='width: 20%;' class=' img-fluid float-right'>" + "<br>";
-      
+
         contenido += "<strong>Nombre: </strong>" + carrito.name + "<br>";
         contenido += "<strong>Cantidad: </strong>" + "<input type='number' id='cantidad" + i + "' onchange='calculoSubTotal(" + i + ")' value='" + carrito.count + "'>" + "<br>";
         contenido += "<strong>Precio: </strong> " + "<input id='precio" + i + "' type='number' value='" + carrito.unitCost + "'>" + "<br>";
@@ -29,11 +29,11 @@ function mostrarCarrito(array) {
         contenido += "<button class='btn btn-outline'>Guardar para después</button>"
         contenido += "</div>"
         contenido += "<br>"
-        
+
 
 
     }
-    document.getElementById("carrito").innerHTML ="<div class='row'><div class='col-sm-9'>" + contenido + "</div>" + `
+    document.getElementById("carrito").innerHTML = "<div class='row'><div class='col-sm-9'>" + contenido + "</div>" + `
     
             <div class="col-sm-3 float-right border border-info  h-25  ">
                 <p><strong>Subtotal: $ </strong><span  id="totalSub" class="price" style="color:black"></span></p><br>
@@ -45,6 +45,11 @@ function mostrarCarrito(array) {
     </div> ` + "</div>"
     totalSub();
     calculoTotal();
+
+
+
+
+
 }
 
 
@@ -60,7 +65,10 @@ function calculoSubTotal(i) {
 
 
     totalSub();
+    envio();
     calculoTotal();
+
+
 }
 
 function totalSub() {
@@ -68,20 +76,57 @@ function totalSub() {
     let sub = document.getElementsByClassName("subtotal");
     for (let i = 0; i < sub.length; i++) {
         total += parseInt(sub[i].innerHTML);
-        
+
     }
     document.getElementById("totalSub").innerHTML = total
+
 }
+function envio() {
+    total = 0
+    let total1 = parseInt(document.getElementById("totalSub").innerHTML);
+    let premium = document.getElementById("premium");
+    let express = document.getElementById("express");
+    let standard = document.getElementById("standard");
+    if (premium) {
+        total = total1 * 15 / 100;
+        
+    }
+    else if (express) {
+        total = total1 * 7 / 100;
+        
+    }
+    else if (standard) {
+        total = total1 * 5 / 100;
+        
+    }document.getElementById("envio").innerHTML = total
+    
+}
+
 
 function calculoTotal() {
     total = 0
     let st = parseInt(document.getElementById("totalSub").innerHTML);
     let envio = parseInt(document.getElementById("envio").innerHTML);
-    
+
     total = st + envio;
     document.getElementById("total").innerHTML = total
+
 }
 
+
+
+/*function totalConEnvio(){
+    total = parseInt(document.getElementById("envio").innerHTML);
+    let envio = parseInt(document.getElementById("envio").innerHTML);
+    let premium = document.getElementById("premium"); 
+    let express = document.getElementById("express");
+    let standard = document.getElementById("standard");
+    
+    if (premium){
+        console.log(premium.checked)
+     envio = total + (total * 15) / 100;
+    }
+    }*/
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(CARRITO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
