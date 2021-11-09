@@ -76,7 +76,7 @@ function totalSub() {
 function envio() {
     let total1 = parseInt(document.getElementById("totalSub").innerHTML);
     total = 0
-    
+
     let premium = document.getElementById("premium").checked;
     //console.log(premium)
     let express = document.getElementById("express").checked;
@@ -87,7 +87,7 @@ function envio() {
     if (express == true) {
         total = total1 * 7 / 100;
     }
-    if (standard == true){
+    if (standard == true) {
         total = total1 * 5 / 100;
     }
 
@@ -115,3 +115,42 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     });
 });
+
+let form = document.getElementById("datosEnvio");
+let pago = document.getElementById("pago");
+var camposCompletos = document.getElementsByClassName("form-control");
+form.addEventListener("submit", function(event){
+    for (let i = 0; i < camposCompletos.length; i++) {
+   if(camposCompletos[i].value != undefined){
+    pago.style.display = "inline-block";
+   } 
+} 
+});
+
+/*
+function validarEnvio() {
+   e.preventDefault();
+    let metodo = document.getElementById("metodo").checked;
+    let fname = document.getElementById("fname");
+    let emailenvio = document.getElementById("emailenvio");
+    let adr = document.getElementById("adr");
+    let numpuerta = document.getElementById("numpuerta");
+    let city = document.getElementById("city");
+    let numcontacto = document.getElementById("numcontacto");
+    let pago = document.getElementById("pago");
+    let retiro = document.getElementById("retiro").checked;
+
+    if (metodo == true && fname != undefined && emailenvio != undefined && adr != undefined && numpuerta != undefined && city != undefined && numcontacto != undefined) {
+
+        localStorage.setItem("adr", JSON.stringify({ adr: adr }));
+        localStorage.setItem("numpuerta", JSON.stringify({ numpuerta: numpuerta }));
+        localStorage.setItem("city", JSON.stringify({ city: city }));
+        localStorage.setItem("numcontacto", JSON.stringify({ numcontacto: numcontacto }));
+
+        pago.style.display = "inline-block";
+    }
+    if (retiro == true) {
+        pago.style.display = "inline-block";
+    }
+}
+*/
