@@ -46,12 +46,7 @@ function mostrarCarrito(array) {
     totalSub();
     calculoTotal();
 
-
-
-
-
 }
-
 
 
 function calculoSubTotal(i) {
@@ -63,12 +58,9 @@ function calculoSubTotal(i) {
 
     document.getElementById("subtotal" + i).innerHTML = subTotal
 
-
     totalSub();
     envio();
     calculoTotal();
-
-
 }
 
 function totalSub() {
@@ -79,27 +71,27 @@ function totalSub() {
 
     }
     document.getElementById("totalSub").innerHTML = total
-
 }
+
 function envio() {
-    total = 0
     let total1 = parseInt(document.getElementById("totalSub").innerHTML);
-    let premium = document.getElementById("premium");
-    let express = document.getElementById("express");
-    let standard = document.getElementById("standard");
-    if (premium) {
-        total = total1 * 15 / 100;
-        
-    }
-    else if (express) {
-        total = total1 * 7 / 100;
-        
-    }
-    else if (standard) {
-        total = total1 * 5 / 100;
-        
-    }document.getElementById("envio").innerHTML = total
+    total = 0
     
+    let premium = document.getElementById("premium").checked;
+    //console.log(premium)
+    let express = document.getElementById("express").checked;
+    let standard = document.getElementById("standard").checked;
+    if (premium == true) {
+        total = total1 * 15 / 100;
+    }
+    if (express == true) {
+        total = total1 * 7 / 100;
+    }
+    if (standard == true){
+        total = total1 * 5 / 100;
+    }
+
+    document.getElementById("envio").innerHTML = total
 }
 
 
@@ -113,20 +105,6 @@ function calculoTotal() {
 
 }
 
-
-
-/*function totalConEnvio(){
-    total = parseInt(document.getElementById("envio").innerHTML);
-    let envio = parseInt(document.getElementById("envio").innerHTML);
-    let premium = document.getElementById("premium"); 
-    let express = document.getElementById("express");
-    let standard = document.getElementById("standard");
-    
-    if (premium){
-        console.log(premium.checked)
-     envio = total + (total * 15) / 100;
-    }
-    }*/
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(CARRITO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
@@ -135,6 +113,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
             mostrarCarrito(comprado);
 
         }
-
     });
 });
