@@ -110,215 +110,260 @@
         <div role="alert" style="position: relative; width:auto; top: 0;">
           <div class="container p-5 row mb-3align-items-left">
             <div class="col-75">
-              <h4>PASO 1 de 3 Confirmar compra</h4>
+              <h4><strong>PASO 1 de 3 Confirmar compra</strong></h4>
             </div>
 
             <div id="carrito">
 
             </div>
           </div>
+
+          <!--METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO-->
+          <!--METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO-->
+          <!--METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO-->
+
           <div class="row">
-            <div class="col-75">
-              <div class="container">
-                <form action="/action_page.php">
-
-                  <div class="container p-5 row mb-3align-items-left ">
-                    <div class="col-50">
-                      <div>
-                        <h4>PASO 2 de 3 Método de envío</h4>
-                        <hr>
-                        <h3>
-                          <input type="radio" id="metodo" name="metodo"> Datos del envío
-                        </h3>
-                        <label for="fname"><i class="fa fa-user"></i>Nombre completo: </label>
-                        <input type="text" id="fname" name="firstname" placeholder="Nombre completo ">
-                        <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                        <input type="email" id="email" name="email" placeholder="Email"><br>
-                        <label for="adr"><i class="fa fa-address-card-o"></i> Dirección: </label>
-                        <input type="text" id="adr" name="address" placeholder="Dirección">
-                        <input type="number" id="" name="zip" placeholder="N°/esquina/detalles" rows="5"
-                          pattern="[0-9]{3}">
-                        <label for="city"><i class="fa fa-institution"></i> Localidad</label>
-                        <input type="text" id="city" name="city" placeholder="Localidad"><br>
-                        <label for="state"><i class="fa fa-map"></i> Departamento: </label>
-                        <input type="text" id="state" name="state" placeholder="Departamento">
-                        <label for="num"><i class="fa fa-phone"></i>Número de contacto: </label>
-                        <input type="tel" rows="9" id="num" name="numero" pattern="[0-9]{3}[0-9]{3}[0-9]{3}"
-                          placeholder="123 456 789"><br>
-                        <h4>Tipo de envio: </h4>
-                        <form name="envios">
-                          <input type="radio" id="premium" onchange="envio()" class="local" name="local"> Premium (2-5
-                          días) - Costo del 15% sobre el
-                          subtotal.<br>
-                          <input type="radio" id="express" onchange="envio()" class="local" name="local"> Express (5-8
-                          días) - Costo del 7% sobre el
-                          subtotal.<br>
-                          <input type="radio" id="standard" onchange="envio()" class="local" name="local"> Standard (12
-                          a 15 días) - Costo del 5% sobre
-                          el subtotal.
-                        </form>
-                        <hr>
-
-                      </div>
-                      <div>
-                        <h3>
-                          <input type="radio" id="metodo" name="metodo"> Retira en el local
-                        </h3><br>
-
-                      </div>
-                    </div>
-                  </div>
-
-                  <button class="btn btn" style="background-color: rgb(179, 217, 248);" id="paso3"><strong>Confirmar
-                      metodo de envío </strong></button>
-
-
-                </form>
+            <div class="container p-5">
+              <div>
+                <h4><strong>PASO 2 de 3 Método de envío</strong></h4>
               </div>
               <hr>
+              <h3>
+                <input type="radio" id="metodo" name="metodo"> Datos del envío
+              </h3>
+              <form id="datosEnvio" class="was-validated">
 
-              <div class=" container p-5 row mb-3align-items-left ">
-                <div class=" col-50">
-                  <h4>PASO 3 de 3 Método de pago</h4>
-                  <br>
-                  <br>
+                <div class="form row">
+                  <div class="form group col-sm-6">
+                    <label class="form-control" for="fname"><i class="fa fa-user"></i> Nombre completo:
+                    </label>
+                    <input type="text" class="form-control" id="fname" name="firstname" required
+                      placeholder="Nombre completo "><br>
+                  </div>
+
+                  <div class="form group col-sm-6">
+                    <label class="form-control" for="emailenvio"><i class="fa fa-envelope"></i> Email</label>
+                    <input type="email" class="form-control" id="emailenvio" name="email" required
+                      placeholder="Email"><br>
+                  </div>
+
+                  <div class="form group col-sm-6">
+                    <label class="form-control" for="adr"><i class="fa fa-address-card-o"></i> Dirección:
+                    </label>
+                    <input type="text" class="form-control" id="adr" name="address" required
+                      placeholder="Dirección"><br>
+                  </div>
+
+                  <div class="form group col-sm-6">
+                    <p> </p>
+                    <input type="text" id="numpuerta" class="form-control" name="zip" required
+                      placeholder="N°/esquina/detalles" rows="5" pattern="[0-9]{3}">
+                  </div>
+
+                  <div class="form group col-sm-6">
+                    <label class="form-control" for="city"><i class="fa fa-institution"></i> Ciudad: </label>
+                    <input type="text" class="form-control" id="city" name="city" required placeholder="Localidad"><br>
+                  </div>
+
+                  <div class="form group col-sm-6">
+                    <label class="form-control" for="state"><i class="fa fa-map"></i> Departamento: </label>
+                    <input type="text" class="form-control" id="state" name="state" required
+                      placeholder="Departamento"><br>
+                  </div>
+
+                  <div class="form group col-sm-6">
+                    <label class="form-control" for="pais"><i class="fa fa-map"></i> País: </label>
+                    <input type="text" class="form-control" id="pais" name="pais" required placeholder="País"><br>
+                  </div>
+
+                  <div class="form group col-sm-6">
+                    <label class="form-control" for="numcontacto"><i class="fa fa-phone"></i> Número de
+                      contacto: </label>
+                    <input type="tel" class="form-control" rows="9" id="numcontacto" name="numero"
+                      pattern="[0-9]{3}[0-9]{3}[0-9]{3}" required placeholder="123 456 789"><br>
+                    <br>
+                  </div>
+
                 </div>
 
-                
-                <!--MODAL METODO DE PAGO -->
+                <h4>Tipo de envio: </h4>
+                <form name="envios">
+                  <div class="form">
+                    <div class="form group col-sm-6">
+                      <input class="form" type="radio" id="premium" onchange="envio()" class="local" name="local">
+                      Premium (2-5
+                      días) - Costo del 15% sobre el
+                      subtotal.<br>
+                      <input class="form" type="radio" id="express" onchange="envio()" class="local" name="local">
+                      Express (5-8
+                      días) - Costo del 7% sobre el
+                      subtotal.<br>
+                      <input class="form" type="radio" id="standard" onchange="envio()" class="local" name="local">
+                      Standard
+                      (12
+                      a 15 días) - Costo del 5% sobre
+                      el subtotal.
+                    </div>
+                  </div>
+                </form>
+                <hr>
 
-                <button type="button" id="is" class="btn btn-lg  btn-block" data-toggle="modal"
-                  data-target="#exampleModal" style="background-color: rgb(60, 243, 130);">Seleccionar método de
-                  pago
-                </button>
+                <div>
+                  <h3>
+                    <input type="radio" id="retiro" name="metodo"> Retira en el local
+                  </h3><br>
+                </div>
+                <button type="submit" class="btn btn" style="background-color: rgb(179, 217, 248);" id="paso3"
+                  onclick="validarFormulario()"><strong>Confirmar
+                    metodo de envío </strong></button>
 
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                  aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Método de pago</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              </form>
+            </div>
+            <hr>
 
-                        </button>
-                      </div>
 
-                      <div class="modal-body">
-                        <form action="/action_page.php">
-                          <div>
+            <!--METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGOMETODO DE PAGO METODO DE PAGO-->
+            <!--METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGOMETODO DE PAGO METODO DE PAGO-->
+            <!--METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGOMETODO DE PAGO METODO DE PAGO-->
+
+
+            <div id="pago" class=" container p-5 row mb-3" style="display: none;">
+              <div class=" col-50">
+                <h4><strong>PASO 3 de 3 Método de pago</strong></h4>
+                <br>
+                <br>
+              </div>
+
+
+              <!--MODAL METODO DE PAGO -->
+
+              <button type="button" id="is" class="btn btn-lg  btn-block" data-toggle="modal"
+                data-target="#exampleModal" style="background-color: rgb(60, 243, 130);"><strong>Seleccionar método de
+                  pago</strong>
+              </button>
+
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Método de pago</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="borrar()">
+
+                      </button>
+                    </div>
+
+                    <div class="modal-body">
+
+                      <form class="was-validated">
+                        <div class="form row">
+                          <div class="form group col-sm-6">
                             <h3>
-                              <input type="radio" id="pago" name="pago"> Transferencia bancaria
-                            </h3><br>
-                            <form>
-                              <div class="form row">
-                                <div class="form group col-sm-6">
-                                  <label for="ccnum">Número de transferencia: </label>
-                                  <input type="text" id="ccnum" name="cardnumber" placeholder="1234-5678-9012-3456"><br>
-                                </div>
-                            </form>
-                            <hr>
-                          </div>
+                              <input type="radio" id="transferencia" name="pago"> Transferencia bancaria
 
-                          <div>
+                            </h3>
+                          </div><br>
+                          <div class="form group col-sm-6">
+                            <label for="ccnum">Número de transferencia: </label>
+                            <input type="text" id="ccnum" name="cardnumber" placeholder="1234-5678-9012-3456"><br><br>
+                          </div>
+                          <hr>
+                        </div>
+
+                        <div class="form row">
+                          <div class="form group col-sm-6">
                             <h3>
                               <input type="radio" id="tj" name="pago"> Tarjeta de crédito
                             </h3>
                           </div>
 
-                          <div class="icon-container">
-                            <i class="fa fa-cc-visa" style="color:navy;"></i>
-                            <i class="fa fa-cc-amex" style="color:blue;"></i>
-                            <i class="fa fa-cc-mastercard" style="color:red;"></i>
-                            <i class="fa fa-cc-discover" style="color:orange;"></i>
-                          </div>
-                          <div class="container p-5 row ">
 
-                            <form>
-                              
-                              <div class="form row">
-                                <div class="form group col-sm-6">
-                                  <label for="ccnum">Número de tarjeta</label>
-                                  <input type="text" id="ccnum" name="cardnumber" placeholder="1234-5678-9012-3456"><br>
-                                </div>
-                                <div class="form group col-sm-6">
-                                  <label for="expmonth">Mes:</label>
-                                  <input type="text" id="expmonth" name="expmonth" placeholder="Setiembre">
-                                </div>
-                                <div class="form group col-sm-6">
-                                  <label for="expmonth">Año:</label>
-                                  <input type="text" id="expmonth" name="expmonth" placeholder="2018"><br>
-                                </div>
-                                <div class="form group col-sm-6">
-                                  <label for="expyear">Exp Año</label>
-                                  <input type="text" id="expyear" name="expyear" placeholder="20122">
-                                </div>
-                                <div class="form group col-sm-6">
-                                  <label for="cvv">CVV</label>
-                                  <input type="text" id="cvv" name="cvv" placeholder="352">
-                                  <br><br>
-                                </div>
-                              </div>
-                            </form>
-
-                            <div>
-                              <label>
-                                <input type="checkbox" checked="checked" name="sameadr"><a href="#">Acepto los
-                                  terminos y
-                                  condiciones</a>
-                              </label><br>
-                              <button class="btn btn" style="background-color: rgb(167, 204, 252);"" id='paso3'><strong>Confirmar pago </strong></button>
-                             </div>
+                          <div class="form group col-sm-6">
+                            <div class="icon-container">
+                              <i class="fa fa-cc-visa" style="color:navy;"></i>
+                              <i class="fa fa-cc-amex" style="color:blue;"></i>
+                              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                              <i class="fa fa-cc-discover" style="color:orange;"></i>
                             </div>
                           </div>
+                        </div>
 
-                          
-                        </form>
+                        <div class="form row">
+                          <div class="form group col-sm-6">
+                            <label for="ccnumtj">Número de tarjeta</label>
+                            <input type="text" id="ccnumtj" name="cardnumber" placeholder="1234-5678-9012-3456"><br>
+                          </div>
+                          <div class="form group col-sm-6">
+                            <label for="mestj">Mes:</label>
+                            <input type="text" id="mestj" name="expmonth" placeholder="Setiembre">
+                          </div>
+                          <div class="form group col-sm-6">
+                            <label for="añotj">Año:</label>
+                            <input type="text" id="añotj" name="expmonth" placeholder="2018"><br>
+                          </div>
+                          <div class="form group col-sm-6">
+                            <label for="expaño">Exp Año</label>
+                            <input type="text" id="expaño" name="expyear" placeholder="20122">
+                          </div>
+                          <div class="form group col-sm-6">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" name="cvv" placeholder="352">
+                            <br><br>
+                          </div>
+                        </div>
+                      </form>
 
-
+                      <div>
+                        <label>
+                          <input type="checkbox" id="terminos" name="sameadr"><a href="#">Acepto los
+                            terminos y
+                            condiciones</a>
+                        </label><br>
+                        <button class="btn btn" style="background-color: rgb(167, 204, 252);"" id='paso3' onclick="
+                          validarPago()"><strong>Confirmar pago </strong></button>
                       </div>
-                   </div>
+                    </div>
                   </div>
+
+
                 </div>
               </div>
             </div>
           </div>
         </div>
+
       </div>
-
     </div>
-  </div>           
-</div>
+  </div>
 
+  <footer class=" text-muted bg-light">
+    <div class="container">
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra
+        del
+        obligatorio.</p>
+    </div>
+  </footer>
+  <div class="alert fade alert-success" role="alert" id="alertResult">
+    <span id="resultSpan"></span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
 
-
-<footer class=" text-muted bg-light">
-                                <div class="container">
-                                  <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-                                  <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra
-                                    del
-                                    obligatorio.</p>
-                                </div>
-                                </footer>
-                                <div class="alert fade alert-success" role="alert" id="alertResult">
-                                  <span id="resultSpan"></span>
-                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                </div>
-                                <div id="spinner-wrapper">
-                                  <div class="lds-ring">
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                  </div>
-                                </div>
-
-                                <script src="js/jquery-3.4.1.min.js"></script>
-                                <script src="js/bootstrap.bundle.min.js"></script>
-                                <script src="js/dropzone.js"></script>
-                                <script src="js/init.js"></script>
-                                <script src="js/cart.js"></script>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/cart.js"></script>
 </body>
 
 </html>
