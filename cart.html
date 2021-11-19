@@ -107,233 +107,257 @@
         </svg></h2>
       <hr>
       <div class="container p-5">
-        <div role="alert" style="position: relative; width:auto; top: 0;">
-          <div class="container p-5 row mb-3align-items-left">
-            <div class="col-75">
-              <h4><strong>PASO 1 de 3 Confirmar compra</strong></h4>
-            </div>
 
-            <div id="carrito">
-
-            </div>
+        <div class="row mb-3">
+          <div class="col-sm">
+            <h4><strong>PASO 1 de 3 Confirmar compra</strong></h4>
           </div>
 
-          <!--METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO-->
-          <!--METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO-->
-          <!--METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO-->
+          <div class="row" id="carrito"></div>
 
-          <div class="row">
-            <div class="container p-5">
-              <div>
-                <h4><strong>PASO 2 de 3 Método de envío</strong></h4>
-              </div>
-              <hr>
-              <h3>
-                <input type="radio" id="metodo" name="metodo"> Datos del envío
-              </h3>
-              <form id="datosEnvio" class="was-validated">
+        </div>
+      </div>
 
-                <div class="form row">
-                  <div class="form group col-sm-6">
-                    <label class="form-control" for="fname"><i class="fa fa-user"></i> Nombre completo:
-                    </label>
-                    <input type="text" class="form-control" id="fname" name="firstname" required
-                      placeholder="Nombre completo "><br>
-                  </div>
-
-                  <div class="form group col-sm-6">
-                    <label class="form-control" for="emailenvio"><i class="fa fa-envelope"></i> Email</label>
-                    <input type="email" class="form-control" id="emailenvio" name="email" required
-                      placeholder="Email"><br>
-                  </div>
-
-                  <div class="form group col-sm-6">
-                    <label class="form-control" for="adr"><i class="fa fa-address-card-o"></i> Dirección:
-                    </label>
-                    <input type="text" class="form-control" id="adr" name="address" required
-                      placeholder="Dirección"><br>
-                  </div>
-
-                  <div class="form group col-sm-6">
-                    <p> </p>
-                    <input type="text" id="numpuerta" class="form-control" name="zip" required
-                      placeholder="N°/esquina/detalles" rows="5" pattern="[0-9]{3}">
-                  </div>
-
-                  <div class="form group col-sm-6">
-                    <label class="form-control" for="city"><i class="fa fa-institution"></i> Ciudad: </label>
-                    <input type="text" class="form-control" id="city" name="city" required placeholder="Localidad"><br>
-                  </div>
-
-                  <div class="form group col-sm-6">
-                    <label class="form-control" for="state"><i class="fa fa-map"></i> Departamento: </label>
-                    <input type="text" class="form-control" id="state" name="state" required
-                      placeholder="Departamento"><br>
-                  </div>
-
-                  <div class="form group col-sm-6">
-                    <label class="form-control" for="pais"><i class="fa fa-map"></i> País: </label>
-                    <input type="text" class="form-control" id="pais" name="pais" required placeholder="País"><br>
-                  </div>
-
-                  <div class="form group col-sm-6">
-                    <label class="form-control" for="numcontacto"><i class="fa fa-phone"></i> Número de
-                      contacto: </label>
-                    <input type="tel" class="form-control" rows="9" id="numcontacto" name="numero"
-                      pattern="[0-9]{3}[0-9]{3}[0-9]{3}" required placeholder="123 456 789"><br>
-                    <br>
-                  </div>
-
-                </div>
-
-                <h4>Tipo de envio: </h4>
-                <form name="envios">
-                  <div class="form">
-                    <div class="form group col-sm-6">
-                      <input class="form" type="radio" id="premium" onchange="envio()" class="local" name="local">
-                      Premium (2-5
-                      días) - Costo del 15% sobre el
-                      subtotal.<br>
-                      <input class="form" type="radio" id="express" onchange="envio()" class="local" name="local">
-                      Express (5-8
-                      días) - Costo del 7% sobre el
-                      subtotal.<br>
-                      <input class="form" type="radio" id="standard" onchange="envio()" class="local" name="local">
-                      Standard
-                      (12
-                      a 15 días) - Costo del 5% sobre
-                      el subtotal.
-                    </div>
-                  </div>
-                </form>
-                <hr>
-
-                <div>
-                  <h3>
-                    <input type="radio" id="retiro" name="metodo"> Retira en el local
-                  </h3><br>
-                </div>
-                <button type="submit" class="btn btn" style="background-color: rgb(179, 217, 248);" id="paso3"
-                  onclick="validarFormulario()"><strong>Confirmar
-                    metodo de envío </strong></button>
-
-              </form>
+      <!--METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO-->
+      <!--METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO-->
+      <!--METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO METODO DE ENVIO-->
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card " style="width: 42rem;">
+            <div class="card-header"
+              style="background-image: linear-gradient(to right, rgb(132, 241, 255), rgb(206, 255, 142));">
+              <strong>Métodos de envío</strong>
             </div>
-            <hr>
+            <ul class="list-group list-group-flush" ">
+           <li class="
+              list-group-item"style="background-image: linear-gradient(to right, rgb(132, 241, 255), rgb(206, 255, 142));">
+              <input class="form" type="radio" id="premium" onchange="envio()" class="local" name="local">
+              Premium (2-5
+              días) - Costo del 15% sobre el
+              subtotal.
+              </li>
+              <li class="list-group-item"
+                style="background-image: linear-gradient(to right, rgb(132, 241, 255), rgb(206, 255, 142));"><input
+                  class="form" type="radio" id="express" onchange="envio()" class="local" name="local">
+                Express (5-8
+                días) - Costo del 7% sobre el
+                subtotal.
+              </li>
+              <li class="list-group-item"
+                style="background-image: linear-gradient(to right, rgb(132, 241, 255), rgb(206, 255, 142));"><input
+                  class="form" type="radio" id="standard" onchange="envio()" class="local" name="local">
+                Standard
+                (12
+                a 15 días) - Costo del 5% sobre
+                el subtotal.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card " style="width: 18rem; height: 15rem; background-image: linear-gradient(to right, rgb(132, 241, 255), rgb(206, 255, 142));">
+            <div class="card-header bg-transparent ">
+              <h5><strong>Subtotal: $ </strong><span id="totalSub" class="price" style="color:black"></span></h5>
+            </div>
+            <div class="card-body text-success">
+              <p><strong>Envío: $ </strong><span id="envio" class="price">0</span></p>
+            </div>
+            <div class="card-footer bg-transparent ">
+              <p><strong>Total: $ </strong><span id="total" class="price" style="color:black"></span></p>
+            </div>
+            <button type="submit" class="btn btn" style="background-color: rgb(179, 217, 248);" id="paso2" "><strong>Confirmar
+            compra </strong></button>
+        </div>
+      </div>
+      
+        <hr>
 
+        <div class=" row">
+              <div class="col-sm-9">
+                <h4><strong>PASO 2 de 3 Envío</strong></h4><br>
+                <h3>
+                  <input type="radio" id="metodo" name="metodo"> Datos del envío
+                </h3>
+              </div>
+          </div>
+          <form id="datosEnvio" class="was-validated">
 
-            <!--METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGOMETODO DE PAGO METODO DE PAGO-->
-            <!--METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGOMETODO DE PAGO METODO DE PAGO-->
-            <!--METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGOMETODO DE PAGO METODO DE PAGO-->
+            <div class="form row">
+              <div class="form group col-sm-6">
+                <label class="form-control" for="fname"><i class="fa fa-user"></i> Nombre completo:
+                </label>
+                <input type="text" class="form-control" id="fname" name="firstname" required
+                  placeholder="Nombre completo "><br>
+              </div>
 
+              <div class="form group col-sm-6">
+                <label class="form-control" for="emailenvio"><i class="fa fa-envelope"></i> Email</label>
+                <input type="email" class="form-control" id="emailenvio" name="email" required placeholder="Email"><br>
+              </div>
 
-            <div id="pago" class=" container p-5 row mb-3" style="display: none;">
-              <div class=" col-50">
-                <h4><strong>PASO 3 de 3 Método de pago</strong></h4>
-                <br>
+              <div class="form group col-sm-6">
+                <label class="form-control" for="adr"><i class="fa fa-address-card-o"></i> Dirección:
+                </label>
+                <input type="text" class="form-control" id="adr" name="address" required placeholder="Dirección"><br>
+              </div>
+
+              <div class="form group col-sm-6">
+                <p> </p>
+                <input type="text" id="numpuerta" class="form-control" name="zip" required
+                  placeholder="N°/esquina/detalles">
+              </div>
+
+              <div class="form group col-sm-6">
+                <label class="form-control" for="city"><i class="fa fa-institution"></i> Ciudad: </label>
+                <input type="text" class="form-control" id="city" name="city" required placeholder="Localidad"><br>
+              </div>
+
+              <div class="form group col-sm-6">
+                <label class="form-control" for="dpto"><i class="fa fa-map"></i> Departamento: </label>
+                <input type="text" class="form-control" id="dpto" name="state" required placeholder="Departamento"><br>
+              </div>
+
+              <div class="form group col-sm-6">
+                <label class="form-control" for="pais"><i class="fa fa-map"></i> País: </label>
+                <input type="text" class="form-control" id="pais" name="pais" required placeholder="País"><br>
+              </div>
+
+              <div class="form group col-sm-6">
+                <label class="form-control" for="numcontacto"><i class="fa fa-phone"></i> Número de
+                  contacto: </label>
+                <input type="tel" class="form-control" rows="9" id="numcontacto" name="numero"
+                  pattern="[0-9]{3}[0-9]{3}[0-9]{3}" required placeholder="123 456 789"><br>
                 <br>
               </div>
 
-
-              <!--MODAL METODO DE PAGO -->
-
-              <button type="button" id="is" class="btn btn-lg  btn-block" data-toggle="modal"
-                data-target="#exampleModal" style="background-color: rgb(60, 243, 130);"><strong>Seleccionar método de
-                  pago</strong>
-              </button>
-
-              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Método de pago</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="borrar()">
-
-                      </button>
-                    </div>
-
-                    <div class="modal-body">
-
-                      <form class="was-validated">
-                        <div class="form row">
-                          <div class="form group col-sm-6">
-                            <h3>
-                              <input type="radio" id="transferencia" name="pago"> Transferencia bancaria
-
-                            </h3>
-                          </div><br>
-                          <div class="form group col-sm-6">
-                            <label for="ccnum">Número de transferencia: </label>
-                            <input type="text" id="ccnum" name="cardnumber" placeholder="1234-5678-9012-3456"><br><br>
-                          </div>
-                          <hr>
-                        </div>
-
-                        <div class="form row">
-                          <div class="form group col-sm-6">
-                            <h3>
-                              <input type="radio" id="tj" name="pago"> Tarjeta de crédito
-                            </h3>
-                          </div>
+            </div>
 
 
-                          <div class="form group col-sm-6">
-                            <div class="icon-container">
-                              <i class="fa fa-cc-visa" style="color:navy;"></i>
-                              <i class="fa fa-cc-amex" style="color:blue;"></i>
-                              <i class="fa fa-cc-mastercard" style="color:red;"></i>
-                              <i class="fa fa-cc-discover" style="color:orange;"></i>
-                            </div>
-                          </div>
-                        </div>
+            <div>
+              <h3>
+                <input type="radio" id="retiro" name="metodo"> Retira en el local
+              </h3><br>
+            </div>
+            <button type="submit" class="btn btn" style="background-color: rgb(179, 217, 248);" id="paso3"
+              onclick="validarFormulario()"><strong>Confirmar
+                metodo de envío </strong></button>
 
-                        <div class="form row">
-                          <div class="form group col-sm-6">
-                            <label for="ccnumtj">Número de tarjeta</label>
-                            <input type="text" id="ccnumtj" name="cardnumber" placeholder="1234-5678-9012-3456"><br>
-                          </div>
-                          <div class="form group col-sm-6">
-                            <label for="mestj">Mes:</label>
-                            <input type="text" id="mestj" name="expmonth" placeholder="Setiembre">
-                          </div>
-                          <div class="form group col-sm-6">
-                            <label for="añotj">Año:</label>
-                            <input type="text" id="añotj" name="expmonth" placeholder="2018"><br>
-                          </div>
-                          <div class="form group col-sm-6">
-                            <label for="expaño">Exp Año</label>
-                            <input type="text" id="expaño" name="expyear" placeholder="20122">
-                          </div>
-                          <div class="form group col-sm-6">
-                            <label for="cvv">CVV</label>
-                            <input type="text" id="cvv" name="cvv" placeholder="352">
-                            <br><br>
-                          </div>
-                        </div>
-                      </form>
+          </form>
 
-                      <div>
-                        <label>
-                          <input type="checkbox" id="terminos" name="sameadr"><a href="#">Acepto los
-                            terminos y
-                            condiciones</a>
-                        </label><br>
-                        <button class="btn btn" style="background-color: rgb(167, 204, 252);"" id='paso3' onclick="
-                          validarPago()"><strong>Confirmar pago </strong></button>
-                      </div>
-                    </div>
+          <hr>
+
+
+          <!--METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGOMETODO DE PAGO METODO DE PAGO-->
+          <!--METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGOMETODO DE PAGO METODO DE PAGO-->
+          <!--METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGO METODO DE PAGOMETODO DE PAGO METODO DE PAGO-->
+
+
+          <div id="pago" class=" container p-5 row mb-3" style="display: none;">
+            <div class=" col-50">
+              <h4><strong>PASO 3 de 3 Método de pago</strong></h4>
+              <br>
+              <br>
+            </div>
+
+
+            <!--MODAL METODO DE PAGO -->
+
+            <button type="button" id="is" class="btn btn-lg  btn-block" data-toggle="modal" data-target="#exampleModal"
+              style="background-color: rgb(60, 243, 130);"><strong>Seleccionar método de
+                pago</strong>
+            </button>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Método de pago</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="borrar()">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
                   </div>
 
+                  <div class="modal-body">
 
+                    <form class="was-validated">
+                      <div class="form row">
+                        <div class="form group col-sm-6">
+                          <h3>
+                            <input type="radio" id="transferencia" name="pago"> Transferencia bancaria
+
+                          </h3>
+                        </div><br>
+                        <div class="form group col-sm-6">
+                          <label for="ccnum">Número de transferencia: </label>
+                          <input type="text" id="ccnum" name="cardnumber" placeholder="1234-5678-9012-3456"><br><br>
+                        </div>
+                        <hr>
+                      </div>
+
+                      <div class="form row">
+                        <div class="form group col-sm-6">
+                          <h3>
+                            <input type="radio" id="tj" name="pago"> Tarjeta de crédito
+                          </h3>
+                        </div>
+
+
+                        <div class="form group col-sm-6">
+                          <div class="icon-container">
+                            <i class="fa fa-cc-visa" style="color:navy;"></i>
+                            <i class="fa fa-cc-amex" style="color:blue;"></i>
+                            <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                            <i class="fa fa-cc-discover" style="color:orange;"></i>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form row">
+                        <div class="form group col-sm-6">
+                          <label for="ccnumtj">Número de tarjeta</label>
+                          <input type="text" id="ccnumtj" name="cardnumber" placeholder="1234-5678-9012-3456"><br>
+                        </div>
+                        <div class="form group col-sm-6">
+                          <label for="mestj">Mes:</label>
+                          <input type="text" id="mestj" name="expmonth" placeholder="Setiembre">
+                        </div>
+                        <div class="form group col-sm-6">
+                          <label for="añotj">Año:</label>
+                          <input type="text" id="añotj" name="expmonth" placeholder="2018"><br>
+                        </div>
+                        <div class="form group col-sm-6">
+                          <label for="expaño">Exp Año</label>
+                          <input type="text" id="expaño" name="expyear" placeholder="20122">
+                        </div>
+                        <div class="form group col-sm-6">
+                          <label for="cvv">CVV</label>
+                          <input type="text" id="cvv" name="cvv" placeholder="352">
+                          <br><br>
+                        </div>
+                      </div>
+                    </form>
+
+                    <div>
+                      <label>
+                        <input type="checkbox" id="terminos" name="sameadr"><a href="#">Acepto los
+                          terminos y
+                          condiciones</a>
+                      </label><br>
+                      <button class="btn btn" style="background-color: rgb(167, 204, 252);"" id='paso3' onclick="
+                        validarPago()"><strong>Confirmar pago </strong></button>
+                    </div>
+                  </div>
                 </div>
+
+
               </div>
             </div>
           </div>
         </div>
-
       </div>
+
     </div>
+  </div>
   </div>
 
   <footer class=" text-muted bg-light">

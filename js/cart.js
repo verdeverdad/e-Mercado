@@ -13,38 +13,46 @@ function mostrarCarrito(array) {
             carrito.currency = "UYU"
         }
 
-        contenido += "<div id='elemento" + i + "' class='border  border-white'>"
-
-        contenido += "<img src='" + carrito.src + "' style='width: 20%;' class=' img-fluid float-right'>" + "<br>";
-
-        contenido += "<strong>Nombre: </strong>" + carrito.name + "<br>";
-        contenido += "<strong>Cantidad: </strong>" + "<input type='number' id='cantidad" + i + "' onchange='calculoSubTotal(" + i + ")' value='" + carrito.count + "'>" + "<br>";
-        contenido += "<strong>Precio: </strong> " + "<input id='precio" + i + "' type='number' value='" + carrito.unitCost + "'>" + "<br>";
-        contenido += "<strong>Moneda: </strong>" + carrito.currency + "<br>";
-        contenido += "<strong>Subtotal: $ <span  class='subtotal' id='subtotal" + i + "'>" + carrito.unitCost * carrito.count + " </span></strong>" + "<br>"
+        contenido += "<div id='elemento" + i + "' class='tab-content' id='myTabContent'>"
+        contenido += "<div class='tab-pane fade show active' id='uno' role='tabpanel' aria-labelledby='uno-tab'>"
+        contenido += "<div class='table-responsive'>"
+        contenido += "<table class='table table-borderless'>"
+        contenido += "<thead class='thead'>"
+        contenido += "<th><strong>Nombre: </strong></th>"
+        contenido += "<th><strong>Cantidad: </strong></th>"
+        contenido += "<th><strong>Precio: $ </strong></th> "
+        contenido += "<th><strong>Moneda: </strong></th>"
+        contenido += "<th><strong>Subtotal:  " + "</strong>" + "</th>"
+        contenido += "<th></th>"
+        contenido += "</thead>"
+        contenido += "<tbody>"
+        contenido += "<tr>"
+        contenido += "<td>" + carrito.name + "</td>"
+        contenido += "<td>" + "<input type='number' style='width: 50px' id='cantidad" + i + "' onchange='calculoSubTotal(" + i + ")' value='" + carrito.count + "'>" + "<br>" + "</td>"
+        contenido += "<td id='precio" + i + "'>" + carrito.unitCost + "</td>"
+        contenido += "<td>" + carrito.currency + "<br>";
+        contenido += "<td>" + "<span  class='subtotal' id='subtotal" + i + "'>" + carrito.unitCost * carrito.count + "</span>" + "</td>"
+        contenido += "<td>" +"<img src='" + carrito.src + "' style='width: 160px;' class='img-fluid img-thumbnail'>"  + "</td>"
+        contenido += "</tr>"
+        contenido += "</tbody>"
+        contenido += "</table>"
+        contenido += "</div>"
+        contenido += "</div>"
         //botones
-        contenido += "<button class='btn btn-outline'>Eliminar</button>"
-        contenido += "<button class='btn btn-outline'>Agregar más productos</button>"
+        contenido += "<button class='btn btn-outline' onclick='eliminarProducto'>Eliminar</button>"
+        contenido += "<button class='btn btn-outline' onclick='agregarProductos()'>Agregar más productos</button>"
         contenido += "<button class='btn btn-outline'>Comprar ahora</button>"
         contenido += "<button class='btn btn-outline'>Guardar para después</button>"
         contenido += "</div>"
         contenido += "<br>"
-
+        contenido += "</div>"
 
 
     }
-    document.getElementById("carrito").innerHTML = "<div class='row'><div class='col-sm-9'>" + contenido + "</div>" + `
-    
-            <div class="col-sm-3 float-right border border-info  h-25  ">
-                <p><strong>Subtotal: $ </strong><span  id="totalSub" class="price" style="color:black"></span></p><br>
-                <p><strong>Envío: $ </strong><span id="envio" class="price">0</span></p><br>
-                 <p><strong>Total: $ </strong><span id="total" class="price" style="color:black"></span></p><br>
-                <button id="paso2" class="btn btn" style="background-color: rgb(195, 248, 188);" ><strong>Confirmar
-                compra</strong> </button>
-            
-    </div> ` + "</div>"
+    document.getElementById("carrito").innerHTML = "<div class='row'><div class='col-sm-9'>" + contenido + "</div>" 
     totalSub();
     calculoTotal();
+    
 
 }
 
@@ -52,7 +60,7 @@ function mostrarCarrito(array) {
 function calculoSubTotal(i) {
 
     let cantidad = parseInt(document.getElementById("cantidad" + i).value);
-    let precio = parseInt(document.getElementById("precio" + i).value);
+    let precio = parseInt(document.getElementById("precio" + i).innerHTML);
 
     subTotal = cantidad * precio;
 
@@ -92,6 +100,7 @@ function envio() {
     }
 
     document.getElementById("envio").innerHTML = total
+    calculoTotal();
 }
 
 
@@ -165,9 +174,9 @@ function validarFormulario() {
             alert('Proporciona una ciudad');
             return;
         }
-        let departamento = document.getElementById("departamento").value;
+        let departamento = document.getElementById("dpto").value;
         if (departamento.length == 0) {
-            alert('Debes seleccionar un país');
+            alert('Debes seleccionar un departamento');
             return;
         }
         let pais = document.getElementById("pais").value;
@@ -190,21 +199,13 @@ function validarFormulario() {
         let pago = document.getElementById("pago");
         pago.style.display = "inline-block";
     }
-    if (retiro == true) {
-        let premium = document.getElementById("premium").checked;
-        let express = document.getElementById("express").checked;
-        let standard = document.getElementById("standard").checked;
-        if (premium == false && express == false && standard == false) {
-            alert('Confirma un tipo de envío');
-            return;
-        }
-        else {
+    if (retiro) {
             pago.style.display = "inline-block";
             /* localStorage.setItem("adr", JSON.stringify({ adr: adr }));
              localStorage.setItem("numpuerta", JSON.stringify({ numpuerta: numpuerta }));
              localStorage.setItem("city", JSON.stringify({ city: city }));
              localStorage.setItem("numcontacto", JSON.stringify({ numcontacto: numcontacto }));*/
-        }
+        
     }
 }
 
@@ -228,9 +229,9 @@ function validarPago() {
             alert("Debes leer los términos y condiciones");
             return;
         }
-      else( alert("felicitaciones"))
+        else (alert("felicitaciones"))
     }
-    if(tj == true){
+    if (tj == true) {
         let ccnumtj = document.getElementById("ccnumtj").value;
         if (ccnumtj.length == 0) {
             alert("Debes completar el número de tarjeta");
@@ -252,15 +253,21 @@ function validarPago() {
             alert("Debes completar el código de seguridad");
             return;
         }
-        
+
         if (terminos == false) {
             alert("Debes leer los términos y condiciones");
             return;
         }
-        else( alert("felicitaciones"))
+        else (alert("felicitaciones"))
     }
 }
+ function agregarProductos(){
+     window.location.href = "categories.html"
+ }
 
-
+ function eliminarProducto(){
+     console.log("elemento" + i)
+     document.getElementById("carrito").innerHTML = ""
+ }
 
 
